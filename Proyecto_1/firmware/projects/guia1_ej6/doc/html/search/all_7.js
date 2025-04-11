@@ -1,11 +1,11 @@
 var searchData=
 [
   ['gain_1265',['GAIN',['../hx711_8c.html#a97ebc8630db48de37f04b63467584ff0',1,'hx711.c']]],
-  ['gamma_5fset_1266',['gamma_set',['../ili9341_8c.html#a56f6a4cad6b1411383f78e0777d5a077',1,'ili9341.c']]],
-  ['gamma_5fset_1267',['GAMMA_SET',['../ili9341_8c.html#a7f0a97455f8ede6150b6b2c078a90f10',1,'ili9341.c']]],
+  ['gamma_5fset_1266',['GAMMA_SET',['../ili9341_8c.html#a7f0a97455f8ede6150b6b2c078a90f10',1,'ili9341.c']]],
+  ['gamma_5fset_1267',['gamma_set',['../ili9341_8c.html#a56f6a4cad6b1411383f78e0777d5a077',1,'ili9341.c']]],
   ['gatt_5fif_1268',['gatt_if',['../structhidd__le__env__t.html#a56641432afbf2531cd72b0a1eddc6faf',1,'hidd_le_env_t']]],
   ['gatts_5fcb_1269',['gatts_cb',['../structgatts__profile__inst.html#a28b75011466d4c802e22649234b71cad',1,'gatts_profile_inst']]],
-  ['gatts_5fif_1270',['gatts_if',['../structesp__hidd__cb__param__t_1_1hidd__init__finish__evt__param.html#a2b8cfa6eddafd0638ba9804268233d5f',1,'esp_hidd_cb_param_t::hidd_init_finish_evt_param::gatts_if()'],['../structgatts__profile__inst.html#a64b71c3b06d5f84b1a010f794f64b8c1',1,'gatts_profile_inst::gatts_if()']]],
+  ['gatts_5fif_1270',['gatts_if',['../structgatts__profile__inst.html#a64b71c3b06d5f84b1a010f794f64b8c1',1,'gatts_profile_inst::gatts_if()'],['../structesp__hidd__cb__param__t_1_1hidd__init__finish__evt__param.html#a2b8cfa6eddafd0638ba9804268233d5f',1,'esp_hidd_cb_param_t::hidd_init_finish_evt_param::gatts_if()']]],
   ['gatts_5fprofile_5finst_1271',['gatts_profile_inst',['../structgatts__profile__inst.html',1,'']]],
   ['general_1272',['general',['../projects_2guia1__ej6_2build_2_c_make_cache_8txt.html#ad797829e3284fd15f2780269ce9bb6dc',1,'CMakeCache.txt']]],
   ['giop_5ffast_1273',['GIOP_FAST',['../group___g_i_o_p___f_a_s_t.html',1,'']]],
@@ -45,7 +45,7 @@ var searchData=
   ['gpio_5fled1_1307',['GPIO_LED1',['../led_8c.html#ab6b53d6f84e5f6ad10d6d94df9b7e4b3',1,'led.c']]],
   ['gpio_5fled2_1308',['GPIO_LED2',['../led_8c.html#a09f1014df1694b89be1e1bd46cd499b1',1,'led.c']]],
   ['gpio_5fled3_1309',['GPIO_LED3',['../led_8c.html#a4d2764c906b184c472b649a52479f579',1,'led.c']]],
-  ['gpio_5flist_1310',['gpio_list',['../gpio__mcu_8c.html#a8018c4faafd13a4271855441e1a9b2ab',1,'gpio_list():&#160;gpio_mcu.c'],['../group___g_i_o_p.html#gaf65604147d0244c9b13cfdc865ad5393',1,'gpio_list():&#160;gpio_mcu.h']]],
+  ['gpio_5flist_1310',['gpio_list',['../group___g_i_o_p.html#gaf65604147d0244c9b13cfdc865ad5393',1,'gpio_list():&#160;gpio_mcu.h'],['../gpio__mcu_8c.html#a8018c4faafd13a4271855441e1a9b2ab',1,'gpio_list():&#160;gpio_mcu.c']]],
   ['gpio_5fmcu_2ec_1311',['gpio_mcu.c',['../gpio__mcu_8c.html',1,'']]],
   ['gpio_5fmcu_2eh_1312',['gpio_mcu.h',['../gpio__mcu_8h.html',1,'']]],
   ['gpio_5foutput_1313',['GPIO_OUTPUT',['../group___g_i_o_p.html#gga423620ef7d69894833f70cfc395caaa9aa248e73c1faee9c6f072fd91569cf516',1,'gpio_mcu.h']]],
@@ -71,5 +71,6 @@ var searchData=
   ['green_1333',['green',['../structrgb__led.html#a90d21fa503b626c00cdc8d94863d5877',1,'rgb_led']]],
   ['green_5fmsk_1334',['GREEN_MSK',['../neopixel__stripe_8c.html#a09e619b992a50b34742d68754eff15e3',1,'neopixel_stripe.c']]],
   ['green_5foffset_1335',['GREEN_OFFSET',['../neopixel__stripe_8c.html#aea3275e63db7d1cb3df830ba4d27a838',1,'neopixel_stripe.c']]],
-  ['guia1_5fej6_2ec_1336',['guia1_ej6.c',['../guia1__ej6_8c.html',1,'']]]
+  ['guia_201_20_2d_20ejercicio_206_1336',['Guia 1 - Ejercicio 6',['../index.html',1,'']]],
+  ['guia1_5fej6_2ec_1337',['guia1_ej6.c',['../guia1__ej6_8c.html',1,'']]]
 ];

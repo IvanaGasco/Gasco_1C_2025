@@ -1,6 +1,9 @@
-/*! @mainpage Blinking switch
+/*! @mainpage Guia 1 - Ejercicio 2
  *
- * \section genDesc General Description
+ * \section genDesc Descripción del Código
+ *
+ * El siguiente programa configura el funcionamineto de LEDs: prendido (ON), apagado(OFF),
+ * parpadeo(TOGGLE), según como se presionen las teclas (SWITCH 1 y SWITCH 2).
  *
  * 
  * @section changelog Changelog
@@ -29,6 +32,9 @@
 
 /*==================[external functions definition]==========================*/
 /*
+REALICÉ ESTE EJERCICIO DE DOS MANERAS DISTINTAS, AMBAS CUMPLEN CON LA CONSIGNA.
+DEJO UNA COMENTADA PARA EVITAR PROBLEMAS DE FUNCIONAMIENTO
+
 void app_main(void){
     uint8_t teclas;
     LedsInit();

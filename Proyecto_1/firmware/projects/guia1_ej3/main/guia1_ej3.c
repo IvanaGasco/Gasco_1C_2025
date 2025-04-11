@@ -1,17 +1,13 @@
-/*! @mainpage Template
+/*! @mainpage Guia 1 - Ejercicio 3
  *
- * @section genDesc General Description
+ * @section genDesc Descripción del Código
  *
- * This section describes how the program works.
- *
+ * El siguiente programa, mediante el funcionamiento de LEDs, configura una led para que parpadee
+ * 10 veces con un período de 1 segundo (500 ms encendido y 500 ms apagado por ciclo).
+ * Utilizando estructuras ya definidas y utilizadas en el ejercicio anterior.
+ * 
  * <a href="https://drive.google.com/...">Operation Example</a>
  *
- * @section hardConn Hardware Connection
- *
- * |    Peripheral  |   ESP32   	|
- * |:--------------:|:--------------|
- * | 	PIN_X	 	| 	GPIO_X		|
-
  * @section changelog Changelog
  *
  * |   Date	    | Description                                    |

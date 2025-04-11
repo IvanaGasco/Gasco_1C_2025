@@ -1,18 +1,10 @@
-/*! @mainpage Template
+/*! @mainpage Guia 1 - Ejercicio 4
  *
- * @section genDesc General Description
+ * @section genDesc Descripción del Código
  *
- * This section describes how the program works.
- *
- * <a href="https://drive.google.com/...">Operation Example</a>
- *
- * @section hardConn Hardware Connection
- *
- * |    Peripheral  |   ESP32   	|
- * |:--------------:|:--------------|
- * | 	PIN_X	 	| 	GPIO_X		|
- *
- *@section changelog Changelog
+ * El siguiente programa convierte un número entero a un arreglo en BCD.
+ * 
+ * @section changelog Changelog
  *
  * |   Date	    | Description                                    |
  * |:----------:|:-----------------------------------------------|

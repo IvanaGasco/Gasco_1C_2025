@@ -1,16 +1,35 @@
-/*! @mainpage Template
+/*! @mainpage Guia 1 - Ejercicio 6
  *
- * @section genDesc General Description
+ * @section genDesc Descripción del Código
  *
- * This section describes how the program works.
+ * El presente programa permite visualizar un número decimal en un display de 7 segmentos 
+ * controlado por un decodificador BCD (CD4543), utilizando multiplexado para manejar varios dígitos.
+
+Funciones principales:
+
+    convertToBcdArray: convierte un número entero en su representación BCD
+
+    setEstadoGPIO: configura los pines GPIO correspondientes para representar cada dígito en el display.
+
+    displayNumber: controla el encendido de los dígitos de manera secuencial.
+
+    app_main: inicializa los pines del display para visualizar el número en cuestión, luego pone en funcionamineto el programa.
  *
  * <a href="https://drive.google.com/...">Operation Example</a>
  *
  * @section hardConn Hardware Connection
  *
- * |    Peripheral  |   ESP32   	|
- * |:--------------:|:--------------|
- * | 	PIN_X	 	| 	GPIO_X		|
+ * | PIN           | Entrada        | Display (CD4543) |
+ * |:-------------:|:--------------:|:----------------:|
+ * | GPIO_20       | D1 (b0)        | Entrada BCD      |
+ * | GPIO_21       | D2 (b1)        | Entrada BCD      |
+ * | GPIO_22       | D3 (b2)        | Entrada BCD      |
+ * | GPIO_23       | D4 (b3)        | Entrada BCD      |
+ * | GPIO_19       | SEL_1          | Selección dígito 1 |
+ * | GPIO_18       | SEL_2          | Selección dígito 2 |
+ * | GPIO_9        | SEL_3          | Selección dígito 3 |
+ * | +5V           | Alimentación   | CD4543           |
+ * | GND           | Tierra         | CD4543           |
  *
  *@section changelog Changelog
  *

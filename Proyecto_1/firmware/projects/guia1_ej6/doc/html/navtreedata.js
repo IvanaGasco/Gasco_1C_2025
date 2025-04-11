@@ -24,9 +24,9 @@
 */
 var NAVTREE =
 [
-  [ "DocumentacionEjercicio6_EP", "index.html", [
-    [ "Template", "index.html", [
-      [ "General Description", "index.html#genDesc", null ],
+  [ "Documentación - Guia 1 - Ejercicio 6", "index.html", [
+    [ "Guia 1 - Ejercicio 6", "index.html", [
+      [ "Descripción del Código", "index.html#genDesc", null ],
       [ "Hardware Connection", "index.html#hardConn", null ],
       [ "Changelog", "index.html#changelog", null ]
     ] ],
