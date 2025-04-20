@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Actividad 1 - Proyecto 2: Actividad 1 - Proyecto 2</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Actividad 1 - Proyecto 2
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('index.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Actividad 1 - Proyecto 2 </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h1><a class="anchor" id="genDesc"></a>
+Descripción General</h1>
+<p>El siguiente programa realiza mediciones de distancia mediante un sensor ultrasónico (HC-SR04). En base a la medición se controlan las LEDs: se encienden según distintos rangos de distancia, y además se visualiza la distancia medida en el display (LCD ITSE0803). El sistema permite activar o desactivar la medición (medir_encendido) y mantener (hold_encendido) una medición específica para visualizarla de forma fija.</p>
+<p><a href="https://drive.google.com/...">Operation Example</a></p>
+<h2><a class="anchor" id="sensorConn"></a>
+Sensor Ultrasónico HC-SR04</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Señal   </th><th class="markdownTableHeadCenter">ESP32 GPIO    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Trigger   </td><td class="markdownTableBodyCenter">GPIO_3    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Echo   </td><td class="markdownTableBodyCenter">GPIO_2   </td></tr>
+</table>
+<h2><a class="anchor" id="displayConn"></a>
+Display ITSE0803</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">PIN ESP32   </th><th class="markdownTableHeadCenter">Entrada CD4543   </th><th class="markdownTableHeadLeft">Función    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">GPIO_20   </td><td class="markdownTableBodyCenter">D1 (b0)   </td><td class="markdownTableBodyLeft">Entrada BCD    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">GPIO_21   </td><td class="markdownTableBodyCenter">D2 (b1)   </td><td class="markdownTableBodyLeft">Entrada BCD    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">GPIO_22   </td><td class="markdownTableBodyCenter">D3 (b2)   </td><td class="markdownTableBodyLeft">Entrada BCD    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">GPIO_23   </td><td class="markdownTableBodyCenter">D4 (b3)   </td><td class="markdownTableBodyLeft">Entrada BCD    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">GPIO_19   </td><td class="markdownTableBodyCenter">SEL_1   </td><td class="markdownTableBodyLeft">Selección dígito 1    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">GPIO_18   </td><td class="markdownTableBodyCenter">SEL_2   </td><td class="markdownTableBodyLeft">Selección dígito 2    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">GPIO_9   </td><td class="markdownTableBodyCenter">SEL_3   </td><td class="markdownTableBodyLeft">Selección dígito 3    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">+5V   </td><td class="markdownTableBodyCenter">Vcc   </td><td class="markdownTableBodyLeft">Alimentación    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">GND   </td><td class="markdownTableBodyCenter">GND   </td><td class="markdownTableBodyLeft">Tierra   </td></tr>
+</table>
+<h1><a class="anchor" id="changelog"></a>
+Changelog</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Fecha   </th><th class="markdownTableHeadCenter">Descripción    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">12/04/2025   </td><td class="markdownTableBodyCenter">Creación del documento   </td></tr>
+</table>
+<dl class="section author"><dt>Autor</dt><dd>Ivana Gasco (<a href="#" onclick="location.href='mai'+'lto:'+'iva'+'na'+'.ga'+'sc'+'o@i'+'ng'+'eni'+'er'+'ia.'+'un'+'er.'+'ed'+'u.a'+'r'; return false;">ivana<span style="display: none;">.nosp@m.</span>.gas<span style="display: none;">.nosp@m.</span>co@in<span style="display: none;">.nosp@m.</span>geni<span style="display: none;">.nosp@m.</span>eria.<span style="display: none;">.nosp@m.</span>uner<span style="display: none;">.nosp@m.</span>.edu.<span style="display: none;">.nosp@m.</span>ar</a>) </dd></dl>
+</div></div><!-- PageDoc -->
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>
