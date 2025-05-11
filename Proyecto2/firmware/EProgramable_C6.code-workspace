@@ -26,6 +26,12 @@
         },
         {
             "path": "projects/actividad1"
+        },
+        {
+            "path": "projects/actividad2"
+        },
+        {
+            "path": "projects/actividad3"
         }
     ],
     "settings": {

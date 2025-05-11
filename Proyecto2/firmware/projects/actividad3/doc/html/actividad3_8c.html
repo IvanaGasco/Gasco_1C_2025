@@ -1,0 +1,571 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Actividad 3 - Proyecto 2: Referencia del Archivo /home/ivana/Escritorio/1_Cuartri_2025/Electronica_Programable/Gasco_1C_2025/Proyecto2/firmware/projects/actividad3/main/actividad3.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Actividad 3 - Proyecto 2
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('actividad3_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo actividad3.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="gpio__mcu_8h_source.html">gpio_mcu.h</a>&gt;</code><br />
+<code>#include &quot;freertos/FreeRTOS.h&quot;</code><br />
+<code>#include &quot;freertos/task.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="led_8h_source.html">led.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="switch_8h_source.html">switch.h</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="hc__sr04_8h_source.html">hc_sr04.h</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="lcditse0803_8h_source.html">lcditse0803.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="timer__mcu_8h_source.html">timer_mcu.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="uart__mcu_8h_source.html">uart_mcu.h</a>&quot;</code><br />
+</div>
+<p><a href="actividad3_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:a6112eba387706d37138d6d960dccc2f3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad3_8c.html#a6112eba387706d37138d6d960dccc2f3">PERIODO_VISUALIZAR</a>&#160;&#160;&#160;1000000</td></tr>
+<tr class="memdesc:a6112eba387706d37138d6d960dccc2f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Período de activación del temporizador para la tarea de visualización (en microsegundos).  <a href="actividad3_8c.html#a6112eba387706d37138d6d960dccc2f3">Más...</a><br /></td></tr>
+<tr class="separator:a6112eba387706d37138d6d960dccc2f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a96fa131acb51461af657d5e317bf4638"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad3_8c.html#a96fa131acb51461af657d5e317bf4638">FuncTecla1</a> ()</td></tr>
+<tr class="memdesc:a96fa131acb51461af657d5e317bf4638"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que es ejecutada mediante la interrupción asociada al SWITCH 1, o al ingresar la letra 'o' mediante puerto serie La misma posee la siguiente actividad:  <a href="actividad3_8c.html#a96fa131acb51461af657d5e317bf4638">Más...</a><br /></td></tr>
+<tr class="separator:a96fa131acb51461af657d5e317bf4638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51cc7b83c6f726c60d58f8d7c4fa222c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad3_8c.html#a51cc7b83c6f726c60d58f8d7c4fa222c">FuncTecla2</a> ()</td></tr>
+<tr class="memdesc:a51cc7b83c6f726c60d58f8d7c4fa222c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que es ejecutada mediante la interrupción asociada al SWITCH 2, o al ingresar la letra 'h' mediante puerto serie La misma realiza las siguientes actividades:  <a href="actividad3_8c.html#a51cc7b83c6f726c60d58f8d7c4fa222c">Más...</a><br /></td></tr>
+<tr class="separator:a51cc7b83c6f726c60d58f8d7c4fa222c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdae6dc7adcded6752732afa5355f577"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad3_8c.html#acdae6dc7adcded6752732afa5355f577">max_distancia</a> ()</td></tr>
+<tr class="memdesc:acdae6dc7adcded6752732afa5355f577"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda la mayor distancia medida hasta el momento y la fija en el display.  <a href="actividad3_8c.html#acdae6dc7adcded6752732afa5355f577">Más...</a><br /></td></tr>
+<tr class="separator:acdae6dc7adcded6752732afa5355f577"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77e87b5f4d84341af0bec4a405b6351f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad3_8c.html#a77e87b5f4d84341af0bec4a405b6351f">ManejoPuertoSerial</a> (void *param)</td></tr>
+<tr class="memdesc:a77e87b5f4d84341af0bec4a405b6351f"><td class="mdescLeft">&#160;</td><td class="mdescRight">ManejoPuertoSerial que se ejecuta al recibir un byte por UART.  <a href="actividad3_8c.html#a77e87b5f4d84341af0bec4a405b6351f">Más...</a><br /></td></tr>
+<tr class="separator:a77e87b5f4d84341af0bec4a405b6351f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaccfed84cd1498a05ea04a65f1209b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad3_8c.html#afaccfed84cd1498a05ea04a65f1209b1">FuncTimerA</a> (void *param)</td></tr>
+<tr class="memdesc:afaccfed84cd1498a05ea04a65f1209b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función invocada en la interrupción del temporizador, envía una notificación a la tarea de visualización para que ejecute su lógica.  <a href="actividad3_8c.html#afaccfed84cd1498a05ea04a65f1209b1">Más...</a><br /></td></tr>
+<tr class="separator:afaccfed84cd1498a05ea04a65f1209b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad3_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a> (void)</td></tr>
+<tr class="memdesc:a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función principal del programa.  <a href="actividad3_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">Más...</a><br /></td></tr>
+<tr class="separator:a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a45479f665de457e55fb1aaab4df32ddd"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad3_8c.html#a45479f665de457e55fb1aaab4df32ddd">visualizarTaskHandle</a> = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td></tr>
+<tr class="separator:a45479f665de457e55fb1aaab4df32ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f1347a8985925abad81e293f1a43867"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad3_8c.html#a5f1347a8985925abad81e293f1a43867">medir_encendido</a> = false</td></tr>
+<tr class="separator:a5f1347a8985925abad81e293f1a43867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4999a542b9e35a6d49c76a03f8615ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad3_8c.html#ae4999a542b9e35a6d49c76a03f8615ac">hold_encendido</a> = false</td></tr>
+<tr class="separator:ae4999a542b9e35a6d49c76a03f8615ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5a249fedf965a82aa88554d69746f9b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad3_8c.html#af5a249fedf965a82aa88554d69746f9b">medir_pulgadas</a> = false</td></tr>
+<tr class="separator:af5a249fedf965a82aa88554d69746f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54320437aa295916e8058a1748d0c346"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad3_8c.html#a54320437aa295916e8058a1748d0c346">aumentar_vel</a> = false</td></tr>
+<tr class="separator:a54320437aa295916e8058a1748d0c346"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac184005f308dc21324f0f4b0e840f903"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad3_8c.html#ac184005f308dc21324f0f4b0e840f903">disminuir_vel</a> = false</td></tr>
+<tr class="separator:ac184005f308dc21324f0f4b0e840f903"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab823edc0d77f7509f223abd5d11c3553"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad3_8c.html#ab823edc0d77f7509f223abd5d11c3553">mostrar_max</a> = false</td></tr>
+<tr class="separator:ab823edc0d77f7509f223abd5d11c3553"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec40b15ff3098bdb2425eb4dc9c11a18"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad3_8c.html#aec40b15ff3098bdb2425eb4dc9c11a18">distancia</a></td></tr>
+<tr class="separator:aec40b15ff3098bdb2425eb4dc9c11a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93749e97c6ca13ceef3bf96ad92248be"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad3_8c.html#a93749e97c6ca13ceef3bf96ad92248be">distancia_hold</a></td></tr>
+<tr class="separator:a93749e97c6ca13ceef3bf96ad92248be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca0d96ea1609a95ba4e195aac76fe271"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad3_8c.html#aca0d96ea1609a95ba4e195aac76fe271">maxMedicion</a> = 0</td></tr>
+<tr class="separator:aca0d96ea1609a95ba4e195aac76fe271"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53ebf8d5b2883994c8eec21614933117"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad3_8c.html#a53ebf8d5b2883994c8eec21614933117">periodo_actual</a> = <a class="el" href="actividad3_8c.html#a6112eba387706d37138d6d960dccc2f3">PERIODO_VISUALIZAR</a></td></tr>
+<tr class="separator:a53ebf8d5b2883994c8eec21614933117"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de los 'defines'</h2>
+<a id="a6112eba387706d37138d6d960dccc2f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6112eba387706d37138d6d960dccc2f3">&#9670;&nbsp;</a></span>PERIODO_VISUALIZAR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PERIODO_VISUALIZAR&#160;&#160;&#160;1000000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Período de activación del temporizador para la tarea de visualización (en microsegundos). </p>
+
+<p class="definition">Definición en la línea <a class="el" href="actividad3_8c_source.html#l00078">78</a> del archivo <a class="el" href="actividad3_8c_source.html">actividad3.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las funciones</h2>
+<a id="a630544a7f0a2cc40d8a7fefab7e2fe70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a630544a7f0a2cc40d8a7fefab7e2fe70">&#9670;&nbsp;</a></span>app_main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_main </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función principal del programa. </p>
+<p>Inicializa los módulos necesarios:</p><ul>
+<li>LEDs</li>
+<li>Switches</li>
+<li>Display ITSE0803</li>
+<li>Sensor ultrasónico HC-SR04</li>
+<li>Puerto serie (UART_PC) para recepción de comandos por terminal</li>
+</ul>
+<p>Crea la tarea de visualización ("visualizarTask"), que también realiza la medición de distancia, visualiza en el display y controla el encendido de LEDs</p>
+<p>Configura:</p><ul>
+<li>El temporizador para notificar periódicamente a la tarea de visualización</li>
+<li>La UART para manejar comandos mediante la función "ManejoPuertoSerial" </li>
+</ul>
+
+<p class="definition">Definición en la línea <a class="el" href="actividad3_8c_source.html#l00286">286</a> del archivo <a class="el" href="actividad3_8c_source.html">actividad3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="actividad3_8c_source.html#l00099">FuncTecla1()</a>, <a class="el" href="actividad3_8c_source.html#l00108">FuncTecla2()</a>, <a class="el" href="actividad3_8c_source.html#l00261">FuncTimerA()</a>, <a class="el" href="gpio__mcu_8h_source.html#l00054">GPIO_2</a>, <a class="el" href="gpio__mcu_8h_source.html#l00055">GPIO_3</a>, <a class="el" href="hc__sr04_8c_source.html#l00034">HcSr04Init()</a>, <a class="el" href="lcditse0803_8c_source.html#l00037">LcdItsE0803Init()</a>, <a class="el" href="led_8c_source.html#l00031">LedsInit()</a>, <a class="el" href="actividad3_8c_source.html#l00147">ManejoPuertoSerial()</a>, <a class="el" href="ili9341_8c_source.html#l00019">NULL</a>, <a class="el" href="actividad3_8c_source.html#l00078">PERIODO_VISUALIZAR</a>, <a class="el" href="uart__mcu_8h_source.html#l00039">serial_config_t::port</a>, <a class="el" href="switch_8h_source.html#l00032">SWITCH_1</a>, <a class="el" href="switch_8h_source.html#l00033">SWITCH_2</a>, <a class="el" href="switch_8c_source.html#l00047">SwitchActivInt()</a>, <a class="el" href="switch_8c_source.html#l00029">SwitchesInit()</a>, <a class="el" href="timer__mcu_8h_source.html#l00040">timer_config_t::timer</a>, <a class="el" href="timer__mcu_8h_source.html#l00032">TIMER_A</a>, <a class="el" href="timer__mcu_8c_source.html#l00067">TimerInit()</a>, <a class="el" href="uart__mcu_8h_source.html#l00032">UART_PC</a> y <a class="el" href="uart__mcu_8c_source.html#l00107">UartInit()</a>.</p>
+
+</div>
+</div>
+<a id="a96fa131acb51461af657d5e317bf4638"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96fa131acb51461af657d5e317bf4638">&#9670;&nbsp;</a></span>FuncTecla1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FuncTecla1 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función que es ejecutada mediante la interrupción asociada al SWITCH 1, o al ingresar la letra 'o' mediante puerto serie La misma posee la siguiente actividad: </p>
+<ul>
+<li>Alterna el estado de medición (activado/desactivado) </li>
+</ul>
+
+<p class="definition">Definición en la línea <a class="el" href="actividad3_8c_source.html#l00099">99</a> del archivo <a class="el" href="actividad3_8c_source.html">actividad3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="actividad3_8c_source.html#l00081">medir_encendido</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="actividad3_8c_source.html#l00286">app_main()</a> y <a class="el" href="actividad3_8c_source.html#l00147">ManejoPuertoSerial()</a>.</p>
+
+</div>
+</div>
+<a id="a51cc7b83c6f726c60d58f8d7c4fa222c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51cc7b83c6f726c60d58f8d7c4fa222c">&#9670;&nbsp;</a></span>FuncTecla2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FuncTecla2 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función que es ejecutada mediante la interrupción asociada al SWITCH 2, o al ingresar la letra 'h' mediante puerto serie La misma realiza las siguientes actividades: </p>
+<ul>
+<li>Activa o desactiva el modo hold</li>
+<li>Si se activa, guarda el valor actual del sensor para mantenerlo fijo en el display </li>
+</ul>
+
+<p class="definition">Definición en la línea <a class="el" href="actividad3_8c_source.html#l00108">108</a> del archivo <a class="el" href="actividad3_8c_source.html">actividad3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="actividad3_8c_source.html#l00087">distancia</a>, <a class="el" href="actividad3_8c_source.html#l00088">distancia_hold</a> y <a class="el" href="actividad3_8c_source.html#l00082">hold_encendido</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="actividad3_8c_source.html#l00286">app_main()</a> y <a class="el" href="actividad3_8c_source.html#l00147">ManejoPuertoSerial()</a>.</p>
+
+</div>
+</div>
+<a id="afaccfed84cd1498a05ea04a65f1209b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaccfed84cd1498a05ea04a65f1209b1">&#9670;&nbsp;</a></span>FuncTimerA()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FuncTimerA </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función invocada en la interrupción del temporizador, envía una notificación a la tarea de visualización para que ejecute su lógica. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="actividad3_8c_source.html#l00261">261</a> del archivo <a class="el" href="actividad3_8c_source.html">actividad3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="actividad3_8c_source.html#l00080">visualizarTaskHandle</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="actividad3_8c_source.html#l00286">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="a77e87b5f4d84341af0bec4a405b6351f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77e87b5f4d84341af0bec4a405b6351f">&#9670;&nbsp;</a></span>ManejoPuertoSerial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ManejoPuertoSerial </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ManejoPuertoSerial que se ejecuta al recibir un byte por UART. </p>
+<p>Esta función interpreta comandos enviados desde el monitor serie y modifica el comportamiento del sistema en consecuencia.</p>
+<p>Comandos válidos:</p><ul>
+<li>&lsquo;'o&rsquo;<code>: Alterna la activación de la medición. -</code>'h'<code>: Alterna el modo hold (congela la medición actual). -</code>'i'<code>: Cambia entre visualización en centímetros o pulgadas. -</code>'m'<code>: Activa el modo de visualización de la mayor distancia registrada. -</code>'f'<code>: Aumenta la frecuencia de actualización (reduce el período). -</code>'s'`: Disminuye la frecuencia de actualización (aumenta el período). </li>
+</ul>
+
+<p class="definition">Definición en la línea <a class="el" href="actividad3_8c_source.html#l00147">147</a> del archivo <a class="el" href="actividad3_8c_source.html">actividad3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="actividad3_8c_source.html#l00099">FuncTecla1()</a>, <a class="el" href="actividad3_8c_source.html#l00108">FuncTecla2()</a>, <a class="el" href="actividad3_8c_source.html#l00122">max_distancia()</a>, <a class="el" href="actividad3_8c_source.html#l00083">medir_pulgadas</a>, <a class="el" href="actividad3_8c_source.html#l00086">mostrar_max</a>, <a class="el" href="actividad3_8c_source.html#l00090">periodo_actual</a>, <a class="el" href="timer__mcu_8h_source.html#l00032">TIMER_A</a>, <a class="el" href="timer__mcu_8c_source.html#l00116">TimerStart()</a>, <a class="el" href="timer__mcu_8c_source.html#l00146">TimerStop()</a>, <a class="el" href="timer__mcu_8c_source.html#l00174">TimerUpdatePeriod()</a>, <a class="el" href="uart__mcu_8h_source.html#l00032">UART_PC</a> y <a class="el" href="uart__mcu_8c_source.html#l00142">UartReadByte()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="actividad3_8c_source.html#l00286">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="acdae6dc7adcded6752732afa5355f577"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdae6dc7adcded6752732afa5355f577">&#9670;&nbsp;</a></span>max_distancia()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void max_distancia </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Guarda la mayor distancia medida hasta el momento y la fija en el display. </p>
+<p>Esta función compara la distancia actual con la máxima registrada. Si la actual es mayor, actualiza el valor máximo. Luego, activa el modo hold y muestra esa distancia máxima en el display. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="actividad3_8c_source.html#l00122">122</a> del archivo <a class="el" href="actividad3_8c_source.html">actividad3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="actividad3_8c_source.html#l00087">distancia</a>, <a class="el" href="actividad3_8c_source.html#l00088">distancia_hold</a>, <a class="el" href="actividad3_8c_source.html#l00082">hold_encendido</a> y <a class="el" href="actividad3_8c_source.html#l00089">maxMedicion</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="actividad3_8c_source.html#l00147">ManejoPuertoSerial()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las variables</h2>
+<a id="a54320437aa295916e8058a1748d0c346"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54320437aa295916e8058a1748d0c346">&#9670;&nbsp;</a></span>aumentar_vel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool aumentar_vel = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="actividad3_8c_source.html#l00084">84</a> del archivo <a class="el" href="actividad3_8c_source.html">actividad3.c</a>.</p>
+
+</div>
+</div>
+<a id="ac184005f308dc21324f0f4b0e840f903"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac184005f308dc21324f0f4b0e840f903">&#9670;&nbsp;</a></span>disminuir_vel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool disminuir_vel = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="actividad3_8c_source.html#l00085">85</a> del archivo <a class="el" href="actividad3_8c_source.html">actividad3.c</a>.</p>
+
+</div>
+</div>
+<a id="aec40b15ff3098bdb2425eb4dc9c11a18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec40b15ff3098bdb2425eb4dc9c11a18">&#9670;&nbsp;</a></span>distancia</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t distancia</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="actividad3_8c_source.html#l00087">87</a> del archivo <a class="el" href="actividad3_8c_source.html">actividad3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="actividad3_8c_source.html#l00108">FuncTecla2()</a> y <a class="el" href="actividad3_8c_source.html#l00122">max_distancia()</a>.</p>
+
+</div>
+</div>
+<a id="a93749e97c6ca13ceef3bf96ad92248be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93749e97c6ca13ceef3bf96ad92248be">&#9670;&nbsp;</a></span>distancia_hold</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t distancia_hold</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="actividad3_8c_source.html#l00088">88</a> del archivo <a class="el" href="actividad3_8c_source.html">actividad3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="actividad3_8c_source.html#l00108">FuncTecla2()</a> y <a class="el" href="actividad3_8c_source.html#l00122">max_distancia()</a>.</p>
+
+</div>
+</div>
+<a id="ae4999a542b9e35a6d49c76a03f8615ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4999a542b9e35a6d49c76a03f8615ac">&#9670;&nbsp;</a></span>hold_encendido</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool hold_encendido = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="actividad3_8c_source.html#l00082">82</a> del archivo <a class="el" href="actividad3_8c_source.html">actividad3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="actividad3_8c_source.html#l00108">FuncTecla2()</a> y <a class="el" href="actividad3_8c_source.html#l00122">max_distancia()</a>.</p>
+
+</div>
+</div>
+<a id="aca0d96ea1609a95ba4e195aac76fe271"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca0d96ea1609a95ba4e195aac76fe271">&#9670;&nbsp;</a></span>maxMedicion</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t maxMedicion = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="actividad3_8c_source.html#l00089">89</a> del archivo <a class="el" href="actividad3_8c_source.html">actividad3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="actividad3_8c_source.html#l00122">max_distancia()</a>.</p>
+
+</div>
+</div>
+<a id="a5f1347a8985925abad81e293f1a43867"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f1347a8985925abad81e293f1a43867">&#9670;&nbsp;</a></span>medir_encendido</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool medir_encendido = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="actividad3_8c_source.html#l00081">81</a> del archivo <a class="el" href="actividad3_8c_source.html">actividad3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="actividad3_8c_source.html#l00099">FuncTecla1()</a>.</p>
+
+</div>
+</div>
+<a id="af5a249fedf965a82aa88554d69746f9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5a249fedf965a82aa88554d69746f9b">&#9670;&nbsp;</a></span>medir_pulgadas</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool medir_pulgadas = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="actividad3_8c_source.html#l00083">83</a> del archivo <a class="el" href="actividad3_8c_source.html">actividad3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="actividad3_8c_source.html#l00147">ManejoPuertoSerial()</a>.</p>
+
+</div>
+</div>
+<a id="ab823edc0d77f7509f223abd5d11c3553"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab823edc0d77f7509f223abd5d11c3553">&#9670;&nbsp;</a></span>mostrar_max</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool mostrar_max = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="actividad3_8c_source.html#l00086">86</a> del archivo <a class="el" href="actividad3_8c_source.html">actividad3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="actividad3_8c_source.html#l00147">ManejoPuertoSerial()</a>.</p>
+
+</div>
+</div>
+<a id="a53ebf8d5b2883994c8eec21614933117"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53ebf8d5b2883994c8eec21614933117">&#9670;&nbsp;</a></span>periodo_actual</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t periodo_actual = <a class="el" href="actividad3_8c.html#a6112eba387706d37138d6d960dccc2f3">PERIODO_VISUALIZAR</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="actividad3_8c_source.html#l00090">90</a> del archivo <a class="el" href="actividad3_8c_source.html">actividad3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="actividad3_8c_source.html#l00147">ManejoPuertoSerial()</a>.</p>
+
+</div>
+</div>
+<a id="a45479f665de457e55fb1aaab4df32ddd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45479f665de457e55fb1aaab4df32ddd">&#9670;&nbsp;</a></span>visualizarTaskHandle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t visualizarTaskHandle = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="actividad3_8c_source.html#l00080">80</a> del archivo <a class="el" href="actividad3_8c_source.html">actividad3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="actividad3_8c_source.html#l00261">FuncTimerA()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d9edf6c004b4a7ff14fe9ae7a92214ee.html">firmware</a></li><li class="navelem"><a class="el" href="dir_429d80758da54da73083af4edd40d0b3.html">projects</a></li><li class="navelem"><a class="el" href="dir_c13053d6ce508ebcc76d1bd49386914a.html">actividad3</a></li><li class="navelem"><a class="el" href="dir_6127dfb093af92fc26ce67d068c9cc2f.html">main</a></li><li class="navelem"><a class="el" href="actividad3_8c.html">actividad3.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>
