@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Actividad 4 - Proyecto 2: Referencia del Archivo /home/ivana/Escritorio/1_Cuartri_2025/Electronica_Programable/Gasco_1C_2025/Proyecto2/firmware/projects/actividad4/main/actividad4.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Actividad 4 - Proyecto 2
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('actividad4_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo actividad4.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="analog__io__mcu_8h_source.html">analog_io_mcu.h</a>&quot;</code><br />
+<code>#include &quot;freertos/FreeRTOS.h&quot;</code><br />
+<code>#include &quot;freertos/task.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="uart__mcu_8h_source.html">uart_mcu.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="timer__mcu_8h_source.html">timer_mcu.h</a>&quot;</code><br />
+</div>
+<p><a href="actividad4_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:a6112eba387706d37138d6d960dccc2f3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad4_8c.html#a6112eba387706d37138d6d960dccc2f3">PERIODO_VISUALIZAR</a>&#160;&#160;&#160;40000</td></tr>
+<tr class="memdesc:a6112eba387706d37138d6d960dccc2f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Periodo en microsegundos para temporización a 500Hz.  <a href="actividad4_8c.html#a6112eba387706d37138d6d960dccc2f3">Más...</a><br /></td></tr>
+<tr class="separator:a6112eba387706d37138d6d960dccc2f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a482afa1187ae9b4e7771d119e7a736c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad4_8c.html#a482afa1187ae9b4e7771d119e7a736c8">PERIODO_VISUALIZAR_2</a>&#160;&#160;&#160;20000</td></tr>
+<tr class="memdesc:a482afa1187ae9b4e7771d119e7a736c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Periodo para la generación de la señal ECG.  <a href="actividad4_8c.html#a482afa1187ae9b4e7771d119e7a736c8">Más...</a><br /></td></tr>
+<tr class="separator:a482afa1187ae9b4e7771d119e7a736c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab80fb7fe95a26da0706f82c715ed0c9a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad4_8c.html#ab80fb7fe95a26da0706f82c715ed0c9a">TAMANO_BUFFER</a>&#160;&#160;&#160;231</td></tr>
+<tr class="memdesc:ab80fb7fe95a26da0706f82c715ed0c9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tamaño del buffer con datos de la señal ECG.  <a href="actividad4_8c.html#ab80fb7fe95a26da0706f82c715ed0c9a">Más...</a><br /></td></tr>
+<tr class="separator:ab80fb7fe95a26da0706f82c715ed0c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:afaccfed84cd1498a05ea04a65f1209b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad4_8c.html#afaccfed84cd1498a05ea04a65f1209b1">FuncTimerA</a> (void *param)</td></tr>
+<tr class="memdesc:afaccfed84cd1498a05ea04a65f1209b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función invocada en la interrupción del temporizador A.  <a href="actividad4_8c.html#afaccfed84cd1498a05ea04a65f1209b1">Más...</a><br /></td></tr>
+<tr class="separator:afaccfed84cd1498a05ea04a65f1209b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5088c3325764095ca222dc78c328f466"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad4_8c.html#a5088c3325764095ca222dc78c328f466">FuncTimerB</a> (void *param)</td></tr>
+<tr class="memdesc:a5088c3325764095ca222dc78c328f466"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función invocada en la interrupción del temporizador B.  <a href="actividad4_8c.html#a5088c3325764095ca222dc78c328f466">Más...</a><br /></td></tr>
+<tr class="separator:a5088c3325764095ca222dc78c328f466"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad4_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a> (void)</td></tr>
+<tr class="memdesc:a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función principal de la aplicación.  <a href="actividad4_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">Más...</a><br /></td></tr>
+<tr class="separator:a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:af177b16b369535f64f40e8c1fde9ae85"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad4_8c.html#af177b16b369535f64f40e8c1fde9ae85">MuestreoTaskHandle</a> = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td></tr>
+<tr class="memdesc:af177b16b369535f64f40e8c1fde9ae85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manejador de la tarea de muestreo analógico.  <a href="actividad4_8c.html#af177b16b369535f64f40e8c1fde9ae85">Más...</a><br /></td></tr>
+<tr class="separator:af177b16b369535f64f40e8c1fde9ae85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac62548fffcec461522636f0e7e33397a"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad4_8c.html#ac62548fffcec461522636f0e7e33397a">ECGTaskHandle</a> = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td></tr>
+<tr class="memdesc:ac62548fffcec461522636f0e7e33397a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manejador de la tarea de reproducción ECG.  <a href="actividad4_8c.html#ac62548fffcec461522636f0e7e33397a">Más...</a><br /></td></tr>
+<tr class="separator:ac62548fffcec461522636f0e7e33397a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7b04d8b6696524378d174f86cf2cb73"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad4_8c.html#ae7b04d8b6696524378d174f86cf2cb73">muestra_ECG</a></td></tr>
+<tr class="memdesc:ae7b04d8b6696524378d174f86cf2cb73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Índice actual de lectura en el buffer de ECG.  <a href="actividad4_8c.html#ae7b04d8b6696524378d174f86cf2cb73">Más...</a><br /></td></tr>
+<tr class="separator:ae7b04d8b6696524378d174f86cf2cb73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a531bde420555c9baf5de4505c3cda910"><td class="memItemLeft" align="right" valign="top">const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="actividad4_8c.html#a531bde420555c9baf5de4505c3cda910">ecg</a> [<a class="el" href="actividad4_8c.html#ab80fb7fe95a26da0706f82c715ed0c9a">TAMANO_BUFFER</a>]</td></tr>
+<tr class="memdesc:a531bde420555c9baf5de4505c3cda910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer con valores precargados que simulan una señal ECG (brindado por la cátedra)  <a href="actividad4_8c.html#a531bde420555c9baf5de4505c3cda910">Más...</a><br /></td></tr>
+<tr class="separator:a531bde420555c9baf5de4505c3cda910"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de los 'defines'</h2>
+<a id="a6112eba387706d37138d6d960dccc2f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6112eba387706d37138d6d960dccc2f3">&#9670;&nbsp;</a></span>PERIODO_VISUALIZAR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PERIODO_VISUALIZAR&#160;&#160;&#160;40000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Periodo en microsegundos para temporización a 500Hz. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="actividad4_8c_source.html#l00040">40</a> del archivo <a class="el" href="actividad4_8c_source.html">actividad4.c</a>.</p>
+
+</div>
+</div>
+<a id="a482afa1187ae9b4e7771d119e7a736c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a482afa1187ae9b4e7771d119e7a736c8">&#9670;&nbsp;</a></span>PERIODO_VISUALIZAR_2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PERIODO_VISUALIZAR_2&#160;&#160;&#160;20000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Periodo para la generación de la señal ECG. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="actividad4_8c_source.html#l00046">46</a> del archivo <a class="el" href="actividad4_8c_source.html">actividad4.c</a>.</p>
+
+</div>
+</div>
+<a id="ab80fb7fe95a26da0706f82c715ed0c9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab80fb7fe95a26da0706f82c715ed0c9a">&#9670;&nbsp;</a></span>TAMANO_BUFFER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TAMANO_BUFFER&#160;&#160;&#160;231</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tamaño del buffer con datos de la señal ECG. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="actividad4_8c_source.html#l00052">52</a> del archivo <a class="el" href="actividad4_8c_source.html">actividad4.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las funciones</h2>
+<a id="a630544a7f0a2cc40d8a7fefab7e2fe70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a630544a7f0a2cc40d8a7fefab7e2fe70">&#9670;&nbsp;</a></span>app_main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_main </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función principal de la aplicación. </p>
+<p>Inicializa UART, ADC y salida analógica Crea las tareas y configura los temporizadores para ejecutar las tareas con el periodo especificado segun corresponda </p>
+
+<p class="definition">Definición en la línea <a class="el" href="actividad4_8c_source.html#l00174">174</a> del archivo <a class="el" href="actividad4_8c_source.html">actividad4.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="analog__io__mcu_8h_source.html#l00038">ADC_SINGLE</a>, <a class="el" href="analog__io__mcu_8c_source.html#l00045">AnalogInputInit()</a>, <a class="el" href="analog__io__mcu_8c_source.html#l00120">AnalogOutputInit()</a>, <a class="el" href="analog__io__mcu_8h_source.html#l00032">CH1</a>, <a class="el" href="analog__io__mcu_8h_source.html#l00049">analog_input_config_t::input</a>, <a class="el" href="ili9341_8c_source.html#l00019">NULL</a>, <a class="el" href="uart__mcu_8h_source.html#l00039">serial_config_t::port</a>, <a class="el" href="uart__mcu_8h_source.html#l00032">UART_PC</a> y <a class="el" href="uart__mcu_8c_source.html#l00107">UartInit()</a>.</p>
+
+</div>
+</div>
+<a id="afaccfed84cd1498a05ea04a65f1209b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaccfed84cd1498a05ea04a65f1209b1">&#9670;&nbsp;</a></span>FuncTimerA()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FuncTimerA </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función invocada en la interrupción del temporizador A. </p>
+<p>Notifica a la tarea de muestreo para que lea un valor del ADC y lo envíe por UART </p>
+
+<p class="definition">Definición en la línea <a class="el" href="actividad4_8c_source.html#l00109">109</a> del archivo <a class="el" href="actividad4_8c_source.html">actividad4.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="actividad4_8c_source.html#l00059">MuestreoTaskHandle</a> y <a class="el" href="ili9341_8c_source.html#l00019">NULL</a>.</p>
+
+</div>
+</div>
+<a id="a5088c3325764095ca222dc78c328f466"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5088c3325764095ca222dc78c328f466">&#9670;&nbsp;</a></span>FuncTimerB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FuncTimerB </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función invocada en la interrupción del temporizador B. </p>
+<p>Notifica a la tarea de ECG para que envíe el siguiente valor del buffer a la salida analógica </p>
+
+<p class="definition">Definición en la línea <a class="el" href="actividad4_8c_source.html#l00119">119</a> del archivo <a class="el" href="actividad4_8c_source.html">actividad4.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="actividad4_8c_source.html#l00065">ECGTaskHandle</a> y <a class="el" href="ili9341_8c_source.html#l00019">NULL</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las variables</h2>
+<a id="a531bde420555c9baf5de4505c3cda910"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a531bde420555c9baf5de4505c3cda910">&#9670;&nbsp;</a></span>ecg</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char ecg[<a class="el" href="actividad4_8c.html#ab80fb7fe95a26da0706f82c715ed0c9a">TAMANO_BUFFER</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor inicial:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    76, 77, 78, 77, 79, 86, 81, 76, 84, 93, 85, 80,</div>
+<div class="line">    89, 95, 89, 85, 93, 98, 94, 88, 98, 105, 96, 91,</div>
+<div class="line">    99, 105, 101, 96, 102, 106, 101, 96, 100, 107, 101,</div>
+<div class="line">    94, 100, 104, 100, 91, 99, 103, 98, 91, 96, 105, 95,</div>
+<div class="line">    88, 95, 100, 94, 85, 93, 99, 92, 84, 91, 96, 87, 80,</div>
+<div class="line">    83, 92, 86, 78, 84, 89, 79, 73, 81, 83, 78, 70, 80, 82,</div>
+<div class="line">    79, 69, 80, 82, 81, 70, 75, 81, 77, 74, 79, 83, 82, 72,</div>
+<div class="line">    80, 87, 79, 76, 85, 95, 87, 81, 88, 93, 88, 84, 87, 94,</div>
+<div class="line">    86, 82, 85, 94, 85, 82, 85, 95, 86, 83, 92, 99, 91, 88,</div>
+<div class="line">    94, 98, 95, 90, 97, 105, 104, 94, 98, 114, 117, 124, 144,</div>
+<div class="line">    180, 210, 236, 253, 227, 171, 99, 49, 34, 29, 43, 69, 89,</div>
+<div class="line">    89, 90, 98, 107, 104, 98, 104, 110, 102, 98, 103, 111, 101,</div>
+<div class="line">    94, 103, 108, 102, 95, 97, 106, 100, 92, 101, 103, 100, 94, 98,</div>
+<div class="line">    103, 96, 90, 98, 103, 97, 90, 99, 104, 95, 90, 99, 104, 100, 93,</div>
+<div class="line">    100, 106, 101, 93, 101, 105, 103, 96, 105, 112, 105, 99, 103, 108,</div>
+<div class="line">    99, 96, 102, 106, 99, 90, 92, 100, 87, 80, 82, 88, 77, 69, 75, 79,</div>
+<div class="line">    74, 67, 71, 78, 72, 67, 73, 81, 77, 71, 75, 84, 79, 77, 77, 76, 76,</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>Buffer con valores precargados que simulan una señal ECG (brindado por la cátedra) </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ecg</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="actividad4_8c_source.html#l00081">81</a> del archivo <a class="el" href="actividad4_8c_source.html">actividad4.c</a>.</p>
+
+</div>
+</div>
+<a id="ac62548fffcec461522636f0e7e33397a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac62548fffcec461522636f0e7e33397a">&#9670;&nbsp;</a></span>ECGTaskHandle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t ECGTaskHandle = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Manejador de la tarea de reproducción ECG. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ECGTaskHandle</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="actividad4_8c_source.html#l00065">65</a> del archivo <a class="el" href="actividad4_8c_source.html">actividad4.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="actividad4_8c_source.html#l00119">FuncTimerB()</a>.</p>
+
+</div>
+</div>
+<a id="ae7b04d8b6696524378d174f86cf2cb73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7b04d8b6696524378d174f86cf2cb73">&#9670;&nbsp;</a></span>muestra_ECG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t muestra_ECG</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Índice actual de lectura en el buffer de ECG. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">muestra_ECG</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="actividad4_8c_source.html#l00075">75</a> del archivo <a class="el" href="actividad4_8c_source.html">actividad4.c</a>.</p>
+
+</div>
+</div>
+<a id="af177b16b369535f64f40e8c1fde9ae85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af177b16b369535f64f40e8c1fde9ae85">&#9670;&nbsp;</a></span>MuestreoTaskHandle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t MuestreoTaskHandle = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Manejador de la tarea de muestreo analógico. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">MuestreoTaskHandle</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="actividad4_8c_source.html#l00059">59</a> del archivo <a class="el" href="actividad4_8c_source.html">actividad4.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="actividad4_8c_source.html#l00109">FuncTimerA()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d9edf6c004b4a7ff14fe9ae7a92214ee.html">firmware</a></li><li class="navelem"><a class="el" href="dir_429d80758da54da73083af4edd40d0b3.html">projects</a></li><li class="navelem"><a class="el" href="dir_7d44db00da1d458c14df3441e3c502e6.html">actividad4</a></li><li class="navelem"><a class="el" href="dir_a0f31e3ac9c278feaedd098c33796c88.html">main</a></li><li class="navelem"><a class="el" href="actividad4_8c.html">actividad4.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>
