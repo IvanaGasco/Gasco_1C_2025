@@ -29,6 +29,7 @@ set(srcs
     "devices/src/buzzer.c"
     "devices/src/l293.c"
     "devices/src/mp3v5050.c"
+    "devices/src/sensor_practica.c"
     )
 
 # Always included headers

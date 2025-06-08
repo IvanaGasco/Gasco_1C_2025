@@ -25,19 +25,27 @@
             "path": "projects/x_template"
         },
         {
+            "name": "actividad1",
             "path": "projects/actividad1"
         },
         {
+            "name": "actividad2",
             "path": "projects/actividad2"
         },
         {
+            "name": "actividad3",
             "path": "projects/actividad3"
         },
         {
+            "name": "actividad4",
             "path": "projects/actividad4"
         },
         {
+            "name": "TPI",
             "path": "projects/TPI"
+        },
+        {
+            "path": "projects/ejercicios_practica"
         }
     ],
     "settings": {
@@ -92,7 +100,10 @@
             "ili9341.h": "c",
             "soc_caps.h": "c",
             "mpu6050.h": "c",
-            "i2c_mcu.h": "c"
+            "i2c_mcu.h": "c",
+            "esp_bt.h": "c",
+            "sensor_temp.h": "c",
+            "stdio.h": "c"
         },
     },
     "tasks": {

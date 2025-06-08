@@ -10,13 +10,14 @@
  */
 
 /*==================[inclusions]=============================================*/
-#include "MP3v5050.h"
+#include "sensor_temp.h"
 #include "analog_io_mcu.h"
 #include "uart_mcu.h"
 #include <stdio.h>
+#include "gpio_mcu.h"
 
 /*==================[macros and definitions]=================================*/
-#define VS_MV 3000.0 
+//#define VS_MV 3000.0 
 /*==================[internal data declaration]==============================*/
 
 //analog_input_config_t configuracionCanal = {CH1, ADC_SINGLE, NULL, NULL, 10000}
@@ -31,7 +32,7 @@
 
 /*==================[external functions definition]==========================*/
 
-bool MP3v5050Init(void) {
+bool Sensor_TempInit(void) {
     analog_input_config_t adc_config = {
         .input = CH1,
         .mode = ADC_SINGLE,
@@ -44,23 +45,28 @@ bool MP3v5050Init(void) {
 }
 
 
-float MP3v5050ReadPressure_kPa(void) {
+float Sensor_Medir_Temp_K(void) {
     uint16_t value_mv;
     AnalogInputReadSingle(CH1, &value_mv);  // Lee del canal CH1
 
-    char *str_val = (char *)UartItoa(value_mv, 10);
-    UartSendString(UART_PC, ">voltaje:");
-	UartSendString(UART_PC, str_val);
-    UartSendString(UART_PC, "\r\n");
-
+    //EJEMPLO DE FUNCION DE DIGITALIZACION DE SEÑAL
     float vout = (float)value_mv/ 1000.0;  // convierte a voltios
-    float pressure_kPa = (((vout - 0.16 )/ 3.3) - 0.04) / 0.018;
+    float Temperatura_K = (((vout/ 3.3) - 0.04) / 0.018) + 20;
     printf("value_mv = %d\n", value_mv);
 
     // Convertir y enviar por UART
     
-    return pressure_kPa;
+    return Temperatura_K;
 
+}
+
+float Sensor_pH_Medir_pH(void) {
+    float Medicion_pH = 0.0;
+    return Medicion_pH;
+}
+
+bool  Sensor_Humedad_Medir(void){
+    return GPIORead(GPIO_12);
 }
 
 /*==================[end of file]============================================*/
