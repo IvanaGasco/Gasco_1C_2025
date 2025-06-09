@@ -1,27 +1,29 @@
-/*! @mainpage Template
+/*! @mainpage Actividad 4
  *
- * @section genDesc General Description
+ * @section descripcion_general General Description
  *
- * This section describes how the program works.
+ * Esta aplicación resuelve dos problemas: 
+ * 1) Digitaliza una señal analógica proveniente de un potenciometro utilizando el canal CH1 del microcontrolador a 500Hz
+ * y envía los valores a través de UART a la PC en formato ASCII, para su visualización mediante un serial plotter
+ * 2) Genera una señal de analogica de ECG, apartir de una señal digital muestreada a una frecuencia de 250 Hz
+ * Ambos problemas son resueltos utilizando el conversor ADC integrado en el microprocesador
  *
- * <a href="https://drive.google.com/...">Operation Example</a>
+ * 
+ *  @section hardConn Conexión de Hardware
  *
- * @section hardConn Hardware Connection
+ * | Periférico        | ESP32 (Pin)       |
+ * |:-----------------:|:-----------------:|
+ * | Entrada analógica | CH1 (GPIO_1)      |
  *
- * |    Peripheral  |   ESP32   	|
- * |:--------------:|:--------------|
- * | 	PIN_X	 	| 	GPIO_X		|
+ * @section changelog Historial de Cambios
  *
+ * | Fecha       | Descripción                    |
+ * |:----------: |:------------------------------:|
+ * | 09/06/2025  | Creación del documento         |
  *
- * @section changelog Changelog
- *
- * |   Date	    | Description                                    |
- * |:----------:|:-----------------------------------------------|
- * | 12/09/2023 | Document creation		                         |
- *
- * @author Albano Peñalva (albano.penalva@uner.edu.ar)
- *
+ * @author Ivana Gasco (ivana.gasco@ingenieria.uner.edu.ar)
  */
+
 
 /*==================[inclusions]=============================================*/
 #include <stdio.h>
