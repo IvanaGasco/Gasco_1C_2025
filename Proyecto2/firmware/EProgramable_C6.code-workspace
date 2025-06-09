@@ -46,6 +46,9 @@
         },
         {
             "path": "projects/ejercicios_practica"
+        },
+        {
+            "path": "projects/examen"
         }
     ],
     "settings": {
