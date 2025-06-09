@@ -1,0 +1,558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Examen: Referencia del Archivo /home/ivana/Escritorio/1_Cuartri_2025/Electronica_Programable/Gasco_1C_2025/Proyecto2/firmware/projects/examen/main/examen.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Examen
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('examen_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo examen.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="gpio__mcu_8h_source.html">gpio_mcu.h</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="analog__io__mcu_8h_source.html">analog_io_mcu.h</a>&quot;</code><br />
+<code>#include &quot;freertos/FreeRTOS.h&quot;</code><br />
+<code>#include &quot;freertos/task.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="led_8h_source.html">led.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="timer__mcu_8h_source.html">timer_mcu.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="uart__mcu_8h_source.html">uart_mcu.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="switch_8h_source.html">switch.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="dht11_8h_source.html">dht11.h</a>&quot;</code><br />
+</div>
+<p><a href="examen_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:aee61493b981dc852565294daeda4a388"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examen_8c.html#aee61493b981dc852565294daeda4a388">PERIODO_MUESTREAR</a>&#160;&#160;&#160;1000000</td></tr>
+<tr class="separator:aee61493b981dc852565294daeda4a388"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a462b1597d9d5a6bf3623e55d59f5b288"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examen_8c.html#a462b1597d9d5a6bf3623e55d59f5b288">PERIODO_RADIACION</a>&#160;&#160;&#160;5000000</td></tr>
+<tr class="separator:a462b1597d9d5a6bf3623e55d59f5b288"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:afaccfed84cd1498a05ea04a65f1209b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examen_8c.html#afaccfed84cd1498a05ea04a65f1209b1">FuncTimerA</a> (void *param)</td></tr>
+<tr class="memdesc:afaccfed84cd1498a05ea04a65f1209b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función invocada en la interrupción del temporizador A.  <a href="examen_8c.html#afaccfed84cd1498a05ea04a65f1209b1">Más...</a><br /></td></tr>
+<tr class="separator:afaccfed84cd1498a05ea04a65f1209b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5088c3325764095ca222dc78c328f466"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examen_8c.html#a5088c3325764095ca222dc78c328f466">FuncTimerB</a> (void *param)</td></tr>
+<tr class="memdesc:a5088c3325764095ca222dc78c328f466"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función invocada en la interrupción del temporizador A.  <a href="examen_8c.html#a5088c3325764095ca222dc78c328f466">Más...</a><br /></td></tr>
+<tr class="separator:a5088c3325764095ca222dc78c328f466"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96fa131acb51461af657d5e317bf4638"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examen_8c.html#a96fa131acb51461af657d5e317bf4638">FuncTecla1</a> ()</td></tr>
+<tr class="memdesc:a96fa131acb51461af657d5e317bf4638"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que es ejecutada mediante la interrupción asociada al SWITCH 1, La misma posee la siguiente actividad: Cambia el estado "encender dispositivo" solo de desactivado a activado, enciende el funcionamiento del mismo.  <a href="examen_8c.html#a96fa131acb51461af657d5e317bf4638">Más...</a><br /></td></tr>
+<tr class="separator:a96fa131acb51461af657d5e317bf4638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51cc7b83c6f726c60d58f8d7c4fa222c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examen_8c.html#a51cc7b83c6f726c60d58f8d7c4fa222c">FuncTecla2</a> ()</td></tr>
+<tr class="memdesc:a51cc7b83c6f726c60d58f8d7c4fa222c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que es ejecutada mediante la interrupción asociada al SWITCH 2, La misma posee la siguiente actividad: Cambia el estado "encender dispositivo" solo de activado a desactivado, apaga el funcionamiento del mismo. Lo opuesto a tecla 1.  <a href="examen_8c.html#a51cc7b83c6f726c60d58f8d7c4fa222c">Más...</a><br /></td></tr>
+<tr class="separator:a51cc7b83c6f726c60d58f8d7c4fa222c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2321a090416b62507dd364a2fba9707a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examen_8c.html#a2321a090416b62507dd364a2fba9707a">Verificar_Condiciones</a> ()</td></tr>
+<tr class="memdesc:a2321a090416b62507dd364a2fba9707a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que es ejecutada para verificar si las codiciones son buenas o no, La misma posee la siguiente actividad: Verifica los estados de las banderas booleanas riesgo nevada y radiacion elevada, si ambas se encuentran desactivadas, enciende el led verde indcando condiciones favorables.  <a href="examen_8c.html#a2321a090416b62507dd364a2fba9707a">Más...</a><br /></td></tr>
+<tr class="separator:a2321a090416b62507dd364a2fba9707a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examen_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a> (void)</td></tr>
+<tr class="memdesc:a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función principal del programa.  <a href="examen_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">Más...</a><br /></td></tr>
+<tr class="separator:a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a051431da0725a87169d477e150c811fc"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examen_8c.html#a051431da0725a87169d477e150c811fc">Humedad</a></td></tr>
+<tr class="memdesc:a051431da0725a87169d477e150c811fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Humedad medida con el sensor dht11.  <a href="examen_8c.html#a051431da0725a87169d477e150c811fc">Más...</a><br /></td></tr>
+<tr class="separator:a051431da0725a87169d477e150c811fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7504287e254efe619efa81b4e79ba432"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examen_8c.html#a7504287e254efe619efa81b4e79ba432">Temperatura</a></td></tr>
+<tr class="memdesc:a7504287e254efe619efa81b4e79ba432"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperatura medida con el sensor dht11.  <a href="examen_8c.html#a7504287e254efe619efa81b4e79ba432">Más...</a><br /></td></tr>
+<tr class="separator:a7504287e254efe619efa81b4e79ba432"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4df0b5a520163b62d35d9ea5d3854b58"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examen_8c.html#a4df0b5a520163b62d35d9ea5d3854b58">Radiacion</a></td></tr>
+<tr class="memdesc:a4df0b5a520163b62d35d9ea5d3854b58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Radiación medida con el sensor analógico.  <a href="examen_8c.html#a4df0b5a520163b62d35d9ea5d3854b58">Más...</a><br /></td></tr>
+<tr class="separator:a4df0b5a520163b62d35d9ea5d3854b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb69c54799a02a890d68eb92db44b401"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examen_8c.html#afb69c54799a02a890d68eb92db44b401">riesgo_nevada</a> = false</td></tr>
+<tr class="memdesc:afb69c54799a02a890d68eb92db44b401"><td class="mdescLeft">&#160;</td><td class="mdescRight">bandera booleana global que indica si hay o no riesgo de nevada  <a href="examen_8c.html#afb69c54799a02a890d68eb92db44b401">Más...</a><br /></td></tr>
+<tr class="separator:afb69c54799a02a890d68eb92db44b401"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c089b1c086c11a28c9cf080eea86c63"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examen_8c.html#a9c089b1c086c11a28c9cf080eea86c63">radiacion_elevada</a> = false</td></tr>
+<tr class="memdesc:a9c089b1c086c11a28c9cf080eea86c63"><td class="mdescLeft">&#160;</td><td class="mdescRight">bandera booleana global que indica si hay o no radiacion elevada  <a href="examen_8c.html#a9c089b1c086c11a28c9cf080eea86c63">Más...</a><br /></td></tr>
+<tr class="separator:a9c089b1c086c11a28c9cf080eea86c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97ae78ac4d291c6b9aa37329d1444abc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examen_8c.html#a97ae78ac4d291c6b9aa37329d1444abc">encender_dispositivo</a> = false</td></tr>
+<tr class="memdesc:a97ae78ac4d291c6b9aa37329d1444abc"><td class="mdescLeft">&#160;</td><td class="mdescRight">bandera booleana global que indica si el dispositivo esta encendido o no  <a href="examen_8c.html#a97ae78ac4d291c6b9aa37329d1444abc">Más...</a><br /></td></tr>
+<tr class="separator:a97ae78ac4d291c6b9aa37329d1444abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a343167675015efdbc65bde6f694c60cf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examen_8c.html#a343167675015efdbc65bde6f694c60cf">condiciones_favorables</a> = false</td></tr>
+<tr class="memdesc:a343167675015efdbc65bde6f694c60cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">bandera booleana global que indica si hay o no condiciones favorables  <a href="examen_8c.html#a343167675015efdbc65bde6f694c60cf">Más...</a><br /></td></tr>
+<tr class="separator:a343167675015efdbc65bde6f694c60cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54f261b8fc7f24079bea777f2734403e"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examen_8c.html#a54f261b8fc7f24079bea777f2734403e">MedirHumedad_y_Temperatura_TaskHandle</a> = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td></tr>
+<tr class="memdesc:a54f261b8fc7f24079bea777f2734403e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle para la tarea de medir humedad y temperatura.  <a href="examen_8c.html#a54f261b8fc7f24079bea777f2734403e">Más...</a><br /></td></tr>
+<tr class="separator:a54f261b8fc7f24079bea777f2734403e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0edfee8ea23513a4b8fc22aee516b87f"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="examen_8c.html#a0edfee8ea23513a4b8fc22aee516b87f">MedirRadiacion_TaskHandle</a> = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td></tr>
+<tr class="memdesc:a0edfee8ea23513a4b8fc22aee516b87f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle para la tarea de medir radiacion.  <a href="examen_8c.html#a0edfee8ea23513a4b8fc22aee516b87f">Más...</a><br /></td></tr>
+<tr class="separator:a0edfee8ea23513a4b8fc22aee516b87f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de los 'defines'</h2>
+<a id="aee61493b981dc852565294daeda4a388"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee61493b981dc852565294daeda4a388">&#9670;&nbsp;</a></span>PERIODO_MUESTREAR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PERIODO_MUESTREAR&#160;&#160;&#160;1000000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="examen_8c_source.html#l00071">71</a> del archivo <a class="el" href="examen_8c_source.html">examen.c</a>.</p>
+
+</div>
+</div>
+<a id="a462b1597d9d5a6bf3623e55d59f5b288"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a462b1597d9d5a6bf3623e55d59f5b288">&#9670;&nbsp;</a></span>PERIODO_RADIACION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PERIODO_RADIACION&#160;&#160;&#160;5000000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="examen_8c_source.html#l00072">72</a> del archivo <a class="el" href="examen_8c_source.html">examen.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las funciones</h2>
+<a id="a630544a7f0a2cc40d8a7fefab7e2fe70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a630544a7f0a2cc40d8a7fefab7e2fe70">&#9670;&nbsp;</a></span>app_main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_main </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función principal del programa. </p>
+<p>Inicializa los módulos necesarios:</p><ul>
+<li>LEDs</li>
+<li>Switches</li>
+<li>Sensor analogico</li>
+<li>Sensor uht11</li>
+<li>Puerto serie (UART_PC)</li>
+</ul>
+<p>Crea la tarea de Mediones de Temperatura y humedad (MedirHumedad_y_Temperatura) y medir radiacion (MedirRadiacion), donde ademas cada tarea enciende un led si es necesario</p>
+<p>Configura:</p><ul>
+<li>Los temporizadores para medir las variables pertinentes y comunicar por uart según los tiempos del enunciado </li>
+</ul>
+
+<p class="definition">Definición en la línea <a class="el" href="examen_8c_source.html#l00302">302</a> del archivo <a class="el" href="examen_8c_source.html">examen.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="analog__io__mcu_8h_source.html#l00038">ADC_SINGLE</a>, <a class="el" href="analog__io__mcu_8c_source.html#l00045">AnalogInputInit()</a>, <a class="el" href="analog__io__mcu_8c_source.html#l00120">AnalogOutputInit()</a>, <a class="el" href="analog__io__mcu_8h_source.html#l00032">CH1</a>, <a class="el" href="dht11_8c_source.html#l00227">dht11Init()</a>, <a class="el" href="examen_8c_source.html#l00146">FuncTecla1()</a>, <a class="el" href="examen_8c_source.html#l00156">FuncTecla2()</a>, <a class="el" href="examen_8c_source.html#l00126">FuncTimerA()</a>, <a class="el" href="examen_8c_source.html#l00136">FuncTimerB()</a>, <a class="el" href="gpio__mcu_8h_source.html#l00072">GPIO_20</a>, <a class="el" href="analog__io__mcu_8h_source.html#l00049">analog_input_config_t::input</a>, <a class="el" href="led_8c_source.html#l00031">LedsInit()</a>, <a class="el" href="ili9341_8c_source.html#l00019">NULL</a>, <a class="el" href="examen_8c_source.html#l00071">PERIODO_MUESTREAR</a>, <a class="el" href="examen_8c_source.html#l00072">PERIODO_RADIACION</a>, <a class="el" href="uart__mcu_8h_source.html#l00039">serial_config_t::port</a>, <a class="el" href="switch_8h_source.html#l00032">SWITCH_1</a>, <a class="el" href="switch_8h_source.html#l00033">SWITCH_2</a>, <a class="el" href="switch_8c_source.html#l00047">SwitchActivInt()</a>, <a class="el" href="switch_8c_source.html#l00029">SwitchesInit()</a>, <a class="el" href="timer__mcu_8h_source.html#l00040">timer_config_t::timer</a>, <a class="el" href="timer__mcu_8h_source.html#l00032">TIMER_A</a>, <a class="el" href="timer__mcu_8h_source.html#l00033">TIMER_B</a>, <a class="el" href="timer__mcu_8c_source.html#l00067">TimerInit()</a>, <a class="el" href="uart__mcu_8h_source.html#l00032">UART_PC</a> y <a class="el" href="uart__mcu_8c_source.html#l00107">UartInit()</a>.</p>
+
+</div>
+</div>
+<a id="a96fa131acb51461af657d5e317bf4638"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96fa131acb51461af657d5e317bf4638">&#9670;&nbsp;</a></span>FuncTecla1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FuncTecla1 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función que es ejecutada mediante la interrupción asociada al SWITCH 1, La misma posee la siguiente actividad: Cambia el estado "encender dispositivo" solo de desactivado a activado, enciende el funcionamiento del mismo. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="examen_8c_source.html#l00146">146</a> del archivo <a class="el" href="examen_8c_source.html">examen.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="examen_8c_source.html#l00101">encender_dispositivo</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="examen_8c_source.html#l00302">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="a51cc7b83c6f726c60d58f8d7c4fa222c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51cc7b83c6f726c60d58f8d7c4fa222c">&#9670;&nbsp;</a></span>FuncTecla2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FuncTecla2 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función que es ejecutada mediante la interrupción asociada al SWITCH 2, La misma posee la siguiente actividad: Cambia el estado "encender dispositivo" solo de activado a desactivado, apaga el funcionamiento del mismo. Lo opuesto a tecla 1. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="examen_8c_source.html#l00156">156</a> del archivo <a class="el" href="examen_8c_source.html">examen.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="examen_8c_source.html#l00101">encender_dispositivo</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="examen_8c_source.html#l00302">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="afaccfed84cd1498a05ea04a65f1209b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaccfed84cd1498a05ea04a65f1209b1">&#9670;&nbsp;</a></span>FuncTimerA()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FuncTimerA </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función invocada en la interrupción del temporizador A. </p>
+<p>Notifica a la tarea de mediones de la temperatura y humedad y lo envíe por UART </p>
+
+<p class="definition">Definición en la línea <a class="el" href="examen_8c_source.html#l00126">126</a> del archivo <a class="el" href="examen_8c_source.html">examen.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="examen_8c_source.html#l00112">MedirHumedad_y_Temperatura_TaskHandle</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="examen_8c_source.html#l00302">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="a5088c3325764095ca222dc78c328f466"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5088c3325764095ca222dc78c328f466">&#9670;&nbsp;</a></span>FuncTimerB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FuncTimerB </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función invocada en la interrupción del temporizador A. </p>
+<p>Notifica a la tarea de medicion de la radiacion y lo envíe por UART </p>
+
+<p class="definition">Definición en la línea <a class="el" href="examen_8c_source.html#l00136">136</a> del archivo <a class="el" href="examen_8c_source.html">examen.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="examen_8c_source.html#l00117">MedirRadiacion_TaskHandle</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="examen_8c_source.html#l00302">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="a2321a090416b62507dd364a2fba9707a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2321a090416b62507dd364a2fba9707a">&#9670;&nbsp;</a></span>Verificar_Condiciones()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Verificar_Condiciones </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función que es ejecutada para verificar si las codiciones son buenas o no, La misma posee la siguiente actividad: Verifica los estados de las banderas booleanas riesgo nevada y radiacion elevada, si ambas se encuentran desactivadas, enciende el led verde indcando condiciones favorables. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="examen_8c_source.html#l00166">166</a> del archivo <a class="el" href="examen_8c_source.html">examen.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="examen_8c_source.html#l00106">condiciones_favorables</a>, <a class="el" href="led_8h_source.html#l00034">LED_1</a>, <a class="el" href="led_8h_source.html#l00033">LED_2</a>, <a class="el" href="led_8h_source.html#l00032">LED_3</a>, <a class="el" href="led_8c_source.html#l00065">LedOff()</a>, <a class="el" href="led_8c_source.html#l00046">LedOn()</a>, <a class="el" href="examen_8c_source.html#l00096">radiacion_elevada</a> y <a class="el" href="examen_8c_source.html#l00091">riesgo_nevada</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las variables</h2>
+<a id="a343167675015efdbc65bde6f694c60cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a343167675015efdbc65bde6f694c60cf">&#9670;&nbsp;</a></span>condiciones_favorables</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool condiciones_favorables = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>bandera booleana global que indica si hay o no condiciones favorables </p>
+
+<p class="definition">Definición en la línea <a class="el" href="examen_8c_source.html#l00106">106</a> del archivo <a class="el" href="examen_8c_source.html">examen.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="examen_8c_source.html#l00166">Verificar_Condiciones()</a>.</p>
+
+</div>
+</div>
+<a id="a97ae78ac4d291c6b9aa37329d1444abc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97ae78ac4d291c6b9aa37329d1444abc">&#9670;&nbsp;</a></span>encender_dispositivo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool encender_dispositivo = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>bandera booleana global que indica si el dispositivo esta encendido o no </p>
+
+<p class="definition">Definición en la línea <a class="el" href="examen_8c_source.html#l00101">101</a> del archivo <a class="el" href="examen_8c_source.html">examen.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="examen_8c_source.html#l00146">FuncTecla1()</a> y <a class="el" href="examen_8c_source.html#l00156">FuncTecla2()</a>.</p>
+
+</div>
+</div>
+<a id="a051431da0725a87169d477e150c811fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a051431da0725a87169d477e150c811fc">&#9670;&nbsp;</a></span>Humedad</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Humedad</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Humedad medida con el sensor dht11. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="examen_8c_source.html#l00076">76</a> del archivo <a class="el" href="examen_8c_source.html">examen.c</a>.</p>
+
+</div>
+</div>
+<a id="a54f261b8fc7f24079bea777f2734403e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54f261b8fc7f24079bea777f2734403e">&#9670;&nbsp;</a></span>MedirHumedad_y_Temperatura_TaskHandle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t MedirHumedad_y_Temperatura_TaskHandle = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handle para la tarea de medir humedad y temperatura. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="examen_8c_source.html#l00112">112</a> del archivo <a class="el" href="examen_8c_source.html">examen.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="examen_8c_source.html#l00126">FuncTimerA()</a>.</p>
+
+</div>
+</div>
+<a id="a0edfee8ea23513a4b8fc22aee516b87f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0edfee8ea23513a4b8fc22aee516b87f">&#9670;&nbsp;</a></span>MedirRadiacion_TaskHandle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t MedirRadiacion_TaskHandle = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handle para la tarea de medir radiacion. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="examen_8c_source.html#l00117">117</a> del archivo <a class="el" href="examen_8c_source.html">examen.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="examen_8c_source.html#l00136">FuncTimerB()</a>.</p>
+
+</div>
+</div>
+<a id="a4df0b5a520163b62d35d9ea5d3854b58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4df0b5a520163b62d35d9ea5d3854b58">&#9670;&nbsp;</a></span>Radiacion</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Radiacion</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Radiación medida con el sensor analógico. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="examen_8c_source.html#l00086">86</a> del archivo <a class="el" href="examen_8c_source.html">examen.c</a>.</p>
+
+</div>
+</div>
+<a id="a9c089b1c086c11a28c9cf080eea86c63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c089b1c086c11a28c9cf080eea86c63">&#9670;&nbsp;</a></span>radiacion_elevada</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool radiacion_elevada = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>bandera booleana global que indica si hay o no radiacion elevada </p>
+
+<p class="definition">Definición en la línea <a class="el" href="examen_8c_source.html#l00096">96</a> del archivo <a class="el" href="examen_8c_source.html">examen.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="examen_8c_source.html#l00166">Verificar_Condiciones()</a>.</p>
+
+</div>
+</div>
+<a id="afb69c54799a02a890d68eb92db44b401"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb69c54799a02a890d68eb92db44b401">&#9670;&nbsp;</a></span>riesgo_nevada</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool riesgo_nevada = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>bandera booleana global que indica si hay o no riesgo de nevada </p>
+
+<p class="definition">Definición en la línea <a class="el" href="examen_8c_source.html#l00091">91</a> del archivo <a class="el" href="examen_8c_source.html">examen.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="examen_8c_source.html#l00166">Verificar_Condiciones()</a>.</p>
+
+</div>
+</div>
+<a id="a7504287e254efe619efa81b4e79ba432"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7504287e254efe619efa81b4e79ba432">&#9670;&nbsp;</a></span>Temperatura</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Temperatura</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Temperatura medida con el sensor dht11. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="examen_8c_source.html#l00081">81</a> del archivo <a class="el" href="examen_8c_source.html">examen.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d9edf6c004b4a7ff14fe9ae7a92214ee.html">firmware</a></li><li class="navelem"><a class="el" href="dir_429d80758da54da73083af4edd40d0b3.html">projects</a></li><li class="navelem"><a class="el" href="dir_268187ed9a71f0eda58f84b41654e92c.html">examen</a></li><li class="navelem"><a class="el" href="dir_a5361ca27c53f3c9a3e2f8fa9b1a66f2.html">main</a></li><li class="navelem"><a class="el" href="examen_8c.html">examen.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>
