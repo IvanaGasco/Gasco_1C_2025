@@ -1,5 +1,5 @@
 /*! @file dht11.c
-/** \brief Driver for reading humiduty and temperature with DHT11.
+ * \brief Driver for reading humiduty and temperature with DHT11.
  *
  * @note Temperature range: 0 / +50°C ±2°C
  * 

@@ -48,18 +48,21 @@ float MP3v5050ReadPressure_kPa(void) {
     uint16_t value_mv;
     AnalogInputReadSingle(CH1, &value_mv);  // Lee del canal CH1
 
-    char *str_val = (char *)UartItoa(value_mv, 10);
-    UartSendString(UART_PC, ">voltaje:");
-	UartSendString(UART_PC, str_val);
-    UartSendString(UART_PC, "\r\n");
-
     float vout = (float)value_mv/ 1000.0;  // convierte a voltios
-    float pressure_kPa = (((vout - 0.16 )/ 3.3) - 0.04) / 0.018;
+    float pressure_kPa = (((vout - 0.01 )/ 3.3) - 0.04) / 0.018;
     printf("value_mv = %d\n", value_mv);
 
     // Convertir y enviar por UART
     
     return pressure_kPa;
+
+}
+
+uint16_t Valor_voltaje(void){
+    uint16_t voltaje_mv;
+    AnalogInputReadSingle(CH1, &voltaje_mv);
+
+    return voltaje_mv;
 
 }
 

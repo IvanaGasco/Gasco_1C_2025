@@ -18,4 +18,6 @@ bool MP3v5050Init(void);
  */
 float MP3v5050ReadPressure_kPa(void);
 
+uint16_t Valor_voltaje(void);
+
 #endif /* MP3V5050_H */
