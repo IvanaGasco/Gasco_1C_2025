@@ -1,8 +1,23 @@
 /*! @mainpage Trabajo Integrador Final
  *
  * @section genDesc General Description
- *
- * This section describes how the program works.
+ * 
+ * Este proyecto consiste en un sistema embebido desarrollado sobre una placa ESP32-C6 
+ * con el objetivo de medir parámetros funcionales respiratorios, en particular el índice FEV1/CVF, 
+ * a partir del análisis de una maniobra espiratoria forzada. 
+ * 
+ * Para ello se emplea el sensor MP3v5050 conectado a una boquilla tipo Venturi para medir 
+ * la presión diferencial durante la espiración. Con esta medición, el sistema calcula el flujo de aire 
+ * espirado (Q) y estima el volumen espirado en el primer segundo (FEV1) y el volumen total espirado 
+ * (CVF). Luego, determina el índice FEV1/CVF, que permite evaluar la funcionalidad pulmonar del paciente.
+ * 
+ * Los datos son transmitidos por UART para visualización en un monitor serial o Serial Plotter, 
+ * y también enviados vía Bluetooth Low Energy (BLE) para su representación en tiempo real en una aplicación móvil. 
+ * Además, el sistema cuenta con una interfaz visual mediante LEDs que indica si el resultado se encuentra dentro 
+ * de un rango saludable.
+ * 
+ * El programa está diseñado para funcionar en tiempo real, con un muestreo periódico de 100 ms, 
+ * y permite reiniciar la medición presionando un botón físico (SWITCH_1).
  *
  * <a href="https://drive.google.com/...">Operation Example</a>
  *
@@ -10,9 +25,7 @@
  *
  * |    Peripheral  |   ESP32   	|
  * |:--------------:|:--------------|
- * | 	VCC 	 	| 	 3.3 V	    |
- * |    GND         |     GND       |
- * |    OUT         |  CH1(GPIO_1)  |
+ * | 	MP3v5050	| 	 CH_1 	    | 
  * |--------------------------------|
  *
  *
@@ -41,40 +54,84 @@
 #include "switch.h"
 
 /*==================[macros and definitions]=================================*/
+/** @brief Período de muestreo del temporizador en microsegundos (100ms). */
 #define PERIODO_MUESTREO 100000
+
+/** @brief Cantidad de ciclos sin presión antes de marcar el fin de espiración. */
 #define CICLOS_FIN_ESPIRACION 10
+
+/** @brief Coeficiente de descarga del tubo Venturi. */
 #define Cd 0.97
-#define A1 7.55e-4  // m² (área de entrada, 7.55 cm²)
-#define A2 5.027e-5 // m² (área de garganta, 0.50 cm²)
-#define p 1.2 //  Kg/m3
-#define umbral 2.0 // definir umbral
+
+/** @brief Área de entrada del tubo (en m²). */
+#define A1 7.55e-4  // m²
+
+/** @brief Área de garganta del tubo (en m²). */
+#define A2 5.027e-5 // m²
+
+/** @brief Densidad del aire en Kg/m³. */
+#define p 1.2
+
+/** @brief Umbral de presión en kPa para detectar inicio de espiración. */
+#define umbral 2.0
+
+/** @brief Umbral de índice FEV1/CVF objetivo para LED verde. */
 #define umbral_objetivo 70.0
+
+/** @brief Umbral de índice FEV1/CVF bajo el cual se enciende LED rojo. */
 #define umbral_limite 50.0
+
 /*==================[internal data definition]===============================*/
+/** @brief Handle de la tarea que mide presión. */
 TaskHandle_t MedirPresionTaskHandle = NULL;
+
+/** @brief Handle de la tarea que actualiza los LEDs. */
 TaskHandle_t ActualizarLedsTaskHandle = NULL;
-float presion_Kpa = 0; //p1-p2
+
+/** @brief Presión diferencial medida (en kPa). */
+float presion_Kpa = 0;
+
+/** @brief Flujo espirado en m³/s. */
 float qv = 0;
+
+/** @brief Voltaje leído en mV. */
 uint16_t voltaje_mv;
+
+/** @brief Período actual del temporizador. */
 uint32_t periodo_actual = PERIODO_MUESTREO;
+
+/** @brief Buffer para mensajes a enviar por UART o BLE. */
 char msg[32];
 
+/** @brief Bandera que indica si se detectó el inicio de espiración. */
 bool inicio_espiracion;
+
+/** @brief Bandera que indica si se detectó el fin de espiración. */
 bool fin_espiracion;
+
+/** @brief Volumen total espirado (CVF). */
 float volumen_total_CVF = 0;
+
+/** @brief Volumen espirado en el primer segundo (FEV1). */
 float volumen_1s_FEV1 = 0;
-float dt = 0.1; // 100 ms = 0.1 s
+
+/** @brief Delta de tiempo entre mediciones (en segundos). */
+float dt = 0.1;
+
+/** @brief Tiempo total transcurrido desde el inicio de espiración. */
 float tiempo_total = 0;
+
+/** @brief Índice FEV1/CVF expresado en porcentaje. */
 float indice_de_capacidad_pulmonar;
-uint16_t ciclos_sin_presion = 0; // global
+
+/** @brief Contador de ciclos consecutivos sin presión. */
+uint16_t ciclos_sin_presion = 0;
 
 /*==================[internal functions declaration]=========================*/
 
 /**
  * @brief Función de callback del temporizador. 
  * Notifica a la tarea de medición de presión cuando se alcanza el período.
- * 
- * @param param Parámetro no utilizado.
  */
 void FuncTimerA(void* param){
     vTaskNotifyGiveFromISR(MedirPresionTaskHandle, pdFALSE);    
@@ -89,7 +146,12 @@ void CalcularFlujoEspiracion(){
 	
 }
 
-//Intentar resetear
+/**
+ * @brief Función asociada al SWITCH 1, el propósito es reiniciar los valores
+ * del BLE para comenzar de nuevo, sin embargo no se pudo implementar correctamente
+ * previamente se intentó enviar mediante un bucle for varios valores cero para reiniciar
+ * sin conseguirlo y actualmente al presionar la TECLA 1 se produce una desconexión en BLE.
+ */
 void FuncTecla1() {
 	volumen_total_CVF = 0;
 	volumen_1s_FEV1 = 0;
@@ -102,11 +164,15 @@ void FuncTecla1() {
 	presion_Kpa = 0;
 	if (BleStatus() == BLE_CONNECTED) {
 		snprintf(msg, sizeof(msg), "*B%.2f*\n", indice_de_capacidad_pulmonar);
+		printf("reinicio");
 		BleSendString(msg);
 	}
 
 }
 
+/**
+ * @brief Detecta el inicio y fin de la espiración según el valor de presión y ciclos.
+ */
 void Detectar_Inicio_Fin_Espiracion(){
 	if (presion_Kpa >= umbral){
 		inicio_espiracion = true;
@@ -114,7 +180,7 @@ void Detectar_Inicio_Fin_Espiracion(){
 		ciclos_sin_presion = 0;
 	} else {
 		ciclos_sin_presion++;
-		if (ciclos_sin_presion > CICLOS_FIN_ESPIRACION) { // por ejemplo, 10 ciclos = 1 segundo sin presión
+		if (ciclos_sin_presion > CICLOS_FIN_ESPIRACION) { 
 			inicio_espiracion = false;
 			fin_espiracion = true;
 
@@ -122,8 +188,11 @@ void Detectar_Inicio_Fin_Espiracion(){
 	}
 }
 
+/**
+ * @brief Calcula los volúmenes espirados (CVF y FEV1) e índice FEV1/CVF.
+ */
 void Calculo_FEV1_CVF(){
-    float volumen = qv * 100; // Escalar para trabajar con valores más manejables
+    float volumen = qv * 100; // Escalar para trabajar con valores más manejables, sino se pierden datos.
 
     volumen_total_CVF += volumen * dt;
 
@@ -141,6 +210,9 @@ void Calculo_FEV1_CVF(){
     }
 }
 
+/**
+ * @brief Tarea que actualiza los LEDs según el estado del índice FEV1/CVF.
+ */
 static void ActualizarLedsTask(void *pvParameter) {
     while(true){
         ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
@@ -163,13 +235,7 @@ static void ActualizarLedsTask(void *pvParameter) {
 			LedOff(LED_2);
 			LedOff(LED_3);
 		}
-		vTaskDelay(1000 / portTICK_PERIOD_MS);
 	}
-}
-
-// Función callback para BLE (maneja datos recibidos)
-void BLE_Callback(uint8_t *data, uint8_t length){
-    // agregar codigo para tomar datos
 }
 
 /**
@@ -195,24 +261,18 @@ void Comunicacion_Serie() {
  * @brief Envía el voltaje leído por el sensor al Serial Plotter.
  */
 void Serial_Plotter(){
-
 	voltaje_mv = Valor_voltaje();
 
     char *str_val = (char *)UartItoa(voltaje_mv, 10);
     UartSendString(UART_PC, ">voltaje:");
 	UartSendString(UART_PC, str_val);
     UartSendString(UART_PC, "\r\n");
-	
-
 }
 
 /**
- * @brief Tarea periódica que mide la presión, calcula el flujo, 
- * controla los LEDs, y envía datos por UART y BLE.
- * 
- * @param pvParameter No se utiliza.
+ * @brief Tarea principal del sistema. Lee la presión, detecta espiración, 
+ * calcula volumen y flujo, y transmite datos por UART y BLE.
  */
-
  static void MedirPresionTask(void *pvParameter){
     while(true){
         ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
@@ -235,25 +295,19 @@ void Serial_Plotter(){
                 snprintf(msg, sizeof(msg), "*B%.2f*\n", indice_de_capacidad_pulmonar);
                 BleSendString(msg);
             }
-			xTaskNotifyGive(ActualizarLedsTaskHandle);
-
         } else if (fin_espiracion){
-            // Apagar LEDs
-            LedOff(LED_1);
-            LedOff(LED_2);
-            LedOff(LED_3);
-
             // Reset de variables
             indice_de_capacidad_pulmonar = 0;
             volumen_total_CVF = 0;
             volumen_1s_FEV1 = 0;
             tiempo_total = 0;
 
-            // Reset de flags para permitir una nueva maniobra
+            // Reset de banderas booleanas
             inicio_espiracion = false;
             fin_espiracion = false;
             ciclos_sin_presion = 0;
         }
+		xTaskNotifyGive(ActualizarLedsTaskHandle);
     }
 }
 
@@ -266,7 +320,6 @@ void Serial_Plotter(){
  */
 void app_main(void){
 	LedsInit();
-
 	MP3v5050Init();
 	SwitchesInit();
     SwitchActivInt(SWITCH_1, FuncTecla1, 0);
@@ -282,7 +335,7 @@ void app_main(void){
    
 	ble_config_t ble_config = {
     .device_name = "ESP_EDU_Ivana",
-    .func_p = BLE_Callback
+    .func_p = NULL
 	};
 
 	BleInit(&ble_config);
@@ -297,7 +350,7 @@ void app_main(void){
 
     xTaskCreate(&MedirPresionTask, "MedirPresionTask", 2048, NULL, 5, &MedirPresionTaskHandle);
 
-	xTaskCreate(&ActualizarLedsTask, "ActualizacionLedsTask", 2048, NULL, 5, &ActualizarLedsTaskHandle);
+	xTaskCreate(&ActualizarLedsTask, "ActualizarLedsTask", 2048, NULL, 5, &ActualizarLedsTaskHandle);
 
     TimerStart(timerMedirPresion.timer);
 	

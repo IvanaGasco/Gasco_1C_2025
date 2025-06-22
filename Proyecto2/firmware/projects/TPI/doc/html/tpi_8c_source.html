@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trabajo Práctico Integrador - Espirómetro: Fichero Fuente /home/ivana/Escritorio/1_Cuartri_2025/Electronica_Programable/Gasco_1C_2025/Proyecto2/firmware/projects/TPI/main/tpi.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trabajo Práctico Integrador - Espirómetro
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('tpi_8c_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">tpi.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="tpi_8c.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">/*==================[inclusions]=============================================*/</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="analog__io__mcu_8h.html">analog_io_mcu.h</a>&quot;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;freertos/FreeRTOS.h&quot;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &quot;freertos/task.h&quot;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="uart__mcu_8h.html">uart_mcu.h</a>&quot;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="timer__mcu_8h.html">timer_mcu.h</a>&quot;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="led_8h.html">led.h</a>&quot;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ble__mcu_8h.html">ble_mcu.h</a>&quot;</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_m_p3v5050_8h.html">MP3v5050.h</a>&quot;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="switch_8h.html">switch.h</a>&quot;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">/*==================[macros and definitions]=================================*/</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="tpi_8c.html#aca39b26c504c376043e30f633c1abaf8">   58</a></span>&#160;<span class="preprocessor">#define PERIODO_MUESTREO 100000</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="tpi_8c.html#a7613eca9f75b90f30f3bb011a2fc5622">   61</a></span>&#160;<span class="preprocessor">#define CICLOS_FIN_ESPIRACION 10</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="tpi_8c.html#ad6f5fa843e817d6b7dd2fdb8df513d22">   64</a></span>&#160;<span class="preprocessor">#define Cd 0.97</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="tpi_8c.html#acd92b430059d886880c53f13ae038e3f">   67</a></span>&#160;<span class="preprocessor">#define A1 7.55e-4  </span><span class="comment">// m²</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="tpi_8c.html#a2946bc30423c2a996eeafa49e995c30e">   70</a></span>&#160;<span class="preprocessor">#define A2 5.027e-5 </span><span class="comment">// m²</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="tpi_8c.html#ade66e4ccafbc33b117610bbc0d85feb0">   73</a></span>&#160;<span class="preprocessor">#define p 1.2</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="tpi_8c.html#addfc29b6fbd750fa265ef21d3f300324">   76</a></span>&#160;<span class="preprocessor">#define umbral 2.0</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="tpi_8c.html#a1d6b046b8e65b51e8fa0fd41e687265f">   79</a></span>&#160;<span class="preprocessor">#define umbral_objetivo 70.0</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="tpi_8c.html#a8c6169a91956c1d71728cceb850488bd">   82</a></span>&#160;<span class="preprocessor">#define umbral_limite 50.0</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">/*==================[internal data definition]===============================*/</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="tpi_8c.html#a2c61b109a6870fef4d676096fa0ed473">   86</a></span>&#160;TaskHandle_t <a class="code" href="tpi_8c.html#a2c61b109a6870fef4d676096fa0ed473">MedirPresionTaskHandle</a> = <a class="code" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="tpi_8c.html#a72df3cb793dce94f98ee0a71b118e0bf">   89</a></span>&#160;TaskHandle_t <a class="code" href="tpi_8c.html#a72df3cb793dce94f98ee0a71b118e0bf">ActualizarLedsTaskHandle</a> = <a class="code" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="tpi_8c.html#a641435925a42f8dbbb8b754af49482d4">   92</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="tpi_8c.html#a641435925a42f8dbbb8b754af49482d4">presion_Kpa</a> = 0;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="tpi_8c.html#a8973504ff871a1317a5554cdd01bf319">   95</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="tpi_8c.html#a8973504ff871a1317a5554cdd01bf319">qv</a> = 0;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="tpi_8c.html#a5dcc5c9f58beecd216195a160a973a4d">   98</a></span>&#160;uint16_t <a class="code" href="tpi_8c.html#a5dcc5c9f58beecd216195a160a973a4d">voltaje_mv</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="tpi_8c.html#a53ebf8d5b2883994c8eec21614933117">  101</a></span>&#160;uint32_t <a class="code" href="tpi_8c.html#a53ebf8d5b2883994c8eec21614933117">periodo_actual</a> = <a class="code" href="tpi_8c.html#aca39b26c504c376043e30f633c1abaf8">PERIODO_MUESTREO</a>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">  104</a></span>&#160;<span class="keywordtype">char</span> <a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>[32];</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="tpi_8c.html#aff57ba52c04ea5592d7fbf4ff27d93b4">  107</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="tpi_8c.html#aff57ba52c04ea5592d7fbf4ff27d93b4">inicio_espiracion</a>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="tpi_8c.html#a873980a26076dfd1e6146db6ec732acc">  110</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="tpi_8c.html#a873980a26076dfd1e6146db6ec732acc">fin_espiracion</a>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="tpi_8c.html#a795639193e3f97984deccd59db746f43">  113</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="tpi_8c.html#a795639193e3f97984deccd59db746f43">volumen_total_CVF</a> = 0;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="tpi_8c.html#a7cf63394302df6aa5e35616d49482ab2">  116</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="tpi_8c.html#a7cf63394302df6aa5e35616d49482ab2">volumen_1s_FEV1</a> = 0;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="tpi_8c.html#a778e38aa889751afffa2dea6b803e67a">  119</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="tpi_8c.html#a778e38aa889751afffa2dea6b803e67a">dt</a> = 0.1;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="tpi_8c.html#ad78bfbec0aad248d2f42f34aa6465600">  122</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="tpi_8c.html#ad78bfbec0aad248d2f42f34aa6465600">tiempo_total</a> = 0;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="tpi_8c.html#ac6c28c79f23c747c4e9a0805ec9041f9">  125</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="tpi_8c.html#ac6c28c79f23c747c4e9a0805ec9041f9">indice_de_capacidad_pulmonar</a>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="tpi_8c.html#af2fdc026289be03b84b5f4da8ce389c8">  128</a></span>&#160;uint16_t <a class="code" href="tpi_8c.html#af2fdc026289be03b84b5f4da8ce389c8">ciclos_sin_presion</a> = 0;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">/*==================[internal functions declaration]=========================*/</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="tpi_8c.html#afaccfed84cd1498a05ea04a65f1209b1">  136</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="tpi_8c.html#afaccfed84cd1498a05ea04a65f1209b1">FuncTimerA</a>(<span class="keywordtype">void</span>* param){</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    vTaskNotifyGiveFromISR(<a class="code" href="tpi_8c.html#a2c61b109a6870fef4d676096fa0ed473">MedirPresionTaskHandle</a>, pdFALSE);    </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="tpi_8c.html#aa4716ba0e2555cd64666ad61294377c8">  144</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="tpi_8c.html#aa4716ba0e2555cd64666ad61294377c8">CalcularFlujoEspiracion</a>(){</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <a class="code" href="tpi_8c.html#a8973504ff871a1317a5554cdd01bf319">qv</a> = <a class="code" href="tpi_8c.html#ad6f5fa843e817d6b7dd2fdb8df513d22">Cd</a>*<a class="code" href="tpi_8c.html#a2946bc30423c2a996eeafa49e995c30e">A2</a>*sqrt((2*(<a class="code" href="tpi_8c.html#a641435925a42f8dbbb8b754af49482d4">presion_Kpa</a> * 1000)) / (<a class="code" href="tpi_8c.html#ade66e4ccafbc33b117610bbc0d85feb0">p</a> * (1.0 - pow((<a class="code" href="tpi_8c.html#a2946bc30423c2a996eeafa49e995c30e">A2</a>/<a class="code" href="tpi_8c.html#acd92b430059d886880c53f13ae038e3f">A1</a>), 2)))); <span class="comment">// qv = m3/s</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;}</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="tpi_8c.html#a96fa131acb51461af657d5e317bf4638">  155</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="tpi_8c.html#a96fa131acb51461af657d5e317bf4638">FuncTecla1</a>() {</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="tpi_8c.html#a795639193e3f97984deccd59db746f43">volumen_total_CVF</a> = 0;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <a class="code" href="tpi_8c.html#a7cf63394302df6aa5e35616d49482ab2">volumen_1s_FEV1</a> = 0;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <a class="code" href="tpi_8c.html#ad78bfbec0aad248d2f42f34aa6465600">tiempo_total</a> = 0;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <a class="code" href="tpi_8c.html#ac6c28c79f23c747c4e9a0805ec9041f9">indice_de_capacidad_pulmonar</a> = 0;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <a class="code" href="tpi_8c.html#aff57ba52c04ea5592d7fbf4ff27d93b4">inicio_espiracion</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <a class="code" href="tpi_8c.html#a873980a26076dfd1e6146db6ec732acc">fin_espiracion</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <a class="code" href="tpi_8c.html#af2fdc026289be03b84b5f4da8ce389c8">ciclos_sin_presion</a> = 0;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <a class="code" href="tpi_8c.html#a8973504ff871a1317a5554cdd01bf319">qv</a>= 0;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <a class="code" href="tpi_8c.html#a641435925a42f8dbbb8b754af49482d4">presion_Kpa</a> = 0;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="group___b_l_e.html#ga45f64ecb9f703ecc50b85b6967e85bd5">BleStatus</a>() == <a class="code" href="group___b_l_e.html#ggab13ed63d3b157b93f1e6d98e3d6a7b47a6622372da21e5c0e32cf5c4445145399">BLE_CONNECTED</a>) {</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        snprintf(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>, <span class="keyword">sizeof</span>(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>), <span class="stringliteral">&quot;*B%.2f*\n&quot;</span>, <a class="code" href="tpi_8c.html#ac6c28c79f23c747c4e9a0805ec9041f9">indice_de_capacidad_pulmonar</a>);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        printf(<span class="stringliteral">&quot;reinicio&quot;</span>);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <a class="code" href="group___b_l_e.html#ga68083cec5599456e78a536031e3b61b8">BleSendString</a>(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    }</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;}</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="tpi_8c.html#a045041d965c37a1d425bcdab31b07c2a">  176</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="tpi_8c.html#a045041d965c37a1d425bcdab31b07c2a">Detectar_Inicio_Fin_Espiracion</a>(){</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="tpi_8c.html#a641435925a42f8dbbb8b754af49482d4">presion_Kpa</a> &gt;= <a class="code" href="tpi_8c.html#addfc29b6fbd750fa265ef21d3f300324">umbral</a>){</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <a class="code" href="tpi_8c.html#aff57ba52c04ea5592d7fbf4ff27d93b4">inicio_espiracion</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <a class="code" href="tpi_8c.html#a873980a26076dfd1e6146db6ec732acc">fin_espiracion</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <a class="code" href="tpi_8c.html#af2fdc026289be03b84b5f4da8ce389c8">ciclos_sin_presion</a> = 0;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <a class="code" href="tpi_8c.html#af2fdc026289be03b84b5f4da8ce389c8">ciclos_sin_presion</a>++;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="tpi_8c.html#af2fdc026289be03b84b5f4da8ce389c8">ciclos_sin_presion</a> &gt; <a class="code" href="tpi_8c.html#a7613eca9f75b90f30f3bb011a2fc5622">CICLOS_FIN_ESPIRACION</a>) { </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            <a class="code" href="tpi_8c.html#aff57ba52c04ea5592d7fbf4ff27d93b4">inicio_espiracion</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <a class="code" href="tpi_8c.html#a873980a26076dfd1e6146db6ec732acc">fin_espiracion</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        }</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    }</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;}</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="tpi_8c.html#a06b2ee362a6cda55124b1a2d9b8db8bd">  194</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="tpi_8c.html#a06b2ee362a6cda55124b1a2d9b8db8bd">Calculo_FEV1_CVF</a>(){</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordtype">float</span> volumen = <a class="code" href="tpi_8c.html#a8973504ff871a1317a5554cdd01bf319">qv</a> * 100; <span class="comment">// Escalar para trabajar con valores más manejables, sino se pierden datos.</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <a class="code" href="tpi_8c.html#a795639193e3f97984deccd59db746f43">volumen_total_CVF</a> += volumen * <a class="code" href="tpi_8c.html#a778e38aa889751afffa2dea6b803e67a">dt</a>;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="tpi_8c.html#ad78bfbec0aad248d2f42f34aa6465600">tiempo_total</a> &lt;= 1.0) {</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <a class="code" href="tpi_8c.html#a7cf63394302df6aa5e35616d49482ab2">volumen_1s_FEV1</a> += volumen * <a class="code" href="tpi_8c.html#a778e38aa889751afffa2dea6b803e67a">dt</a>;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    }</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <a class="code" href="tpi_8c.html#ad78bfbec0aad248d2f42f34aa6465600">tiempo_total</a> += <a class="code" href="tpi_8c.html#a778e38aa889751afffa2dea6b803e67a">dt</a>;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="comment">// Evitar división por cero</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="tpi_8c.html#a795639193e3f97984deccd59db746f43">volumen_total_CVF</a> != 0) {</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <a class="code" href="tpi_8c.html#ac6c28c79f23c747c4e9a0805ec9041f9">indice_de_capacidad_pulmonar</a> = (<a class="code" href="tpi_8c.html#a7cf63394302df6aa5e35616d49482ab2">volumen_1s_FEV1</a> / <a class="code" href="tpi_8c.html#a795639193e3f97984deccd59db746f43">volumen_total_CVF</a>) * 100;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <a class="code" href="tpi_8c.html#ac6c28c79f23c747c4e9a0805ec9041f9">indice_de_capacidad_pulmonar</a> = 0.0;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    }</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;}</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> ActualizarLedsTask(<span class="keywordtype">void</span> *pvParameter) {</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordflow">while</span>(<span class="keyword">true</span>){</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        ulTaskNotifyTake(pdTRUE, portMAX_DELAY);</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <span class="comment">// LED_1 siempre encendido durante espiración</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="tpi_8c.html#aff57ba52c04ea5592d7fbf4ff27d93b4">inicio_espiracion</a>){</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            <a class="code" href="group___l_e_d.html#ga883021aaef65f080a52b1852172ecbc3">LedOn</a>(<a class="code" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b">LED_1</a>);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="tpi_8c.html#ac6c28c79f23c747c4e9a0805ec9041f9">indice_de_capacidad_pulmonar</a> &gt;= <a class="code" href="tpi_8c.html#a1d6b046b8e65b51e8fa0fd41e687265f">umbral_objetivo</a>) {</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                <a class="code" href="group___l_e_d.html#ga883021aaef65f080a52b1852172ecbc3">LedOn</a>(<a class="code" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41">LED_2</a>);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                <a class="code" href="group___l_e_d.html#ga4fd07c9f7fab15d0d07389a38f4a39d8">LedOff</a>(<a class="code" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3">LED_3</a>);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="tpi_8c.html#ac6c28c79f23c747c4e9a0805ec9041f9">indice_de_capacidad_pulmonar</a> &lt;= <a class="code" href="tpi_8c.html#a8c6169a91956c1d71728cceb850488bd">umbral_limite</a>) {</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                <a class="code" href="group___l_e_d.html#ga4fd07c9f7fab15d0d07389a38f4a39d8">LedOff</a>(<a class="code" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41">LED_2</a>);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                <a class="code" href="group___l_e_d.html#ga883021aaef65f080a52b1852172ecbc3">LedOn</a>(<a class="code" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3">LED_3</a>);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                <a class="code" href="group___l_e_d.html#ga4fd07c9f7fab15d0d07389a38f4a39d8">LedOff</a>(<a class="code" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41">LED_2</a>);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                <a class="code" href="group___l_e_d.html#ga4fd07c9f7fab15d0d07389a38f4a39d8">LedOff</a>(<a class="code" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3">LED_3</a>);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            }</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            <a class="code" href="group___l_e_d.html#ga4fd07c9f7fab15d0d07389a38f4a39d8">LedOff</a>(<a class="code" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b">LED_1</a>);</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            <a class="code" href="group___l_e_d.html#ga4fd07c9f7fab15d0d07389a38f4a39d8">LedOff</a>(<a class="code" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41">LED_2</a>);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <a class="code" href="group___l_e_d.html#ga4fd07c9f7fab15d0d07389a38f4a39d8">LedOff</a>(<a class="code" href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3">LED_3</a>);</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        }</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    }</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;}</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="tpi_8c.html#acac272f7d90337bf50b6094f42976614">  244</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="tpi_8c.html#acac272f7d90337bf50b6094f42976614">Comunicacion_Serie</a>() {</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    snprintf(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>, <span class="keyword">sizeof</span>(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>), <span class="stringliteral">&quot;%.3f m3/s\r\n&quot;</span>, <a class="code" href="tpi_8c.html#a8973504ff871a1317a5554cdd01bf319">qv</a>);</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <a class="code" href="group___u_a_r_t.html#ga60db217694ea24ad75fcedda3336a3a8">UartSendString</a>(<a class="code" href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a>, <a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>);</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    snprintf(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>, <span class="keyword">sizeof</span>(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>), <span class="stringliteral">&quot;%.2f Kpa\r\n&quot;</span>, <a class="code" href="tpi_8c.html#a641435925a42f8dbbb8b754af49482d4">presion_Kpa</a>);</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <a class="code" href="group___u_a_r_t.html#ga60db217694ea24ad75fcedda3336a3a8">UartSendString</a>(<a class="code" href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a>, <a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>);</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    snprintf(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>, <span class="keyword">sizeof</span>(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>), <span class="stringliteral">&quot;Indice FEV1/CVF = %.2f\r\n&quot;</span>, <a class="code" href="tpi_8c.html#ac6c28c79f23c747c4e9a0805ec9041f9">indice_de_capacidad_pulmonar</a>);</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <a class="code" href="group___u_a_r_t.html#ga60db217694ea24ad75fcedda3336a3a8">UartSendString</a>(<a class="code" href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a>, <a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    snprintf(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>, <span class="keyword">sizeof</span>(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>), <span class="stringliteral">&quot;tiempo total= %.2f\r\n&quot;</span>, <a class="code" href="tpi_8c.html#ad78bfbec0aad248d2f42f34aa6465600">tiempo_total</a>);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <a class="code" href="group___u_a_r_t.html#ga60db217694ea24ad75fcedda3336a3a8">UartSendString</a>(<a class="code" href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a>, <a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>);</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    snprintf(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>, <span class="keyword">sizeof</span>(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>), <span class="stringliteral">&quot;volumen_FE1= %.2f\r\n&quot;</span>, <a class="code" href="tpi_8c.html#a7cf63394302df6aa5e35616d49482ab2">volumen_1s_FEV1</a>);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <a class="code" href="group___u_a_r_t.html#ga60db217694ea24ad75fcedda3336a3a8">UartSendString</a>(<a class="code" href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a>, <a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>);</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    snprintf(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>, <span class="keyword">sizeof</span>(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>), <span class="stringliteral">&quot;volumen_Total= %.2f\r\n&quot;</span>, <a class="code" href="tpi_8c.html#a795639193e3f97984deccd59db746f43">volumen_total_CVF</a>);</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <a class="code" href="group___u_a_r_t.html#ga60db217694ea24ad75fcedda3336a3a8">UartSendString</a>(<a class="code" href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a>, <a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>);</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;}</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
+<div class="line"><a name="l00263"></a><span class="lineno"><a class="line" href="tpi_8c.html#a502ba15f62ab314bceffd8c35ceea29e">  263</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="tpi_8c.html#a502ba15f62ab314bceffd8c35ceea29e">Serial_Plotter</a>(){</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <a class="code" href="tpi_8c.html#a5dcc5c9f58beecd216195a160a973a4d">voltaje_mv</a> = <a class="code" href="_m_p3v5050_8h.html#a2147e7eb8c4a3e670b741139a82f2ef2">Valor_voltaje</a>();</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keywordtype">char</span> *str_val = (<span class="keywordtype">char</span> *)<a class="code" href="group___u_a_r_t.html#ga42730dd5e3d16e66e577225e8a2741fc">UartItoa</a>(<a class="code" href="tpi_8c.html#a5dcc5c9f58beecd216195a160a973a4d">voltaje_mv</a>, 10);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <a class="code" href="group___u_a_r_t.html#ga60db217694ea24ad75fcedda3336a3a8">UartSendString</a>(<a class="code" href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a>, <span class="stringliteral">&quot;&gt;voltaje:&quot;</span>);</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <a class="code" href="group___u_a_r_t.html#ga60db217694ea24ad75fcedda3336a3a8">UartSendString</a>(<a class="code" href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a>, str_val);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <a class="code" href="group___u_a_r_t.html#ga60db217694ea24ad75fcedda3336a3a8">UartSendString</a>(<a class="code" href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a>, <span class="stringliteral">&quot;\r\n&quot;</span>);</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;}</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; <span class="keyword">static</span> <span class="keywordtype">void</span> MedirPresionTask(<span class="keywordtype">void</span> *pvParameter){</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordflow">while</span>(<span class="keyword">true</span>){</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        ulTaskNotifyTake(pdTRUE, portMAX_DELAY);</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        <a class="code" href="tpi_8c.html#a641435925a42f8dbbb8b754af49482d4">presion_Kpa</a> = <a class="code" href="_m_p3v5050_8h.html#a07d47529cf578a92950cea44924a2d4a">MP3v5050ReadPressure_kPa</a>();</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <a class="code" href="tpi_8c.html#a045041d965c37a1d425bcdab31b07c2a">Detectar_Inicio_Fin_Espiracion</a>();</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="tpi_8c.html#aff57ba52c04ea5592d7fbf4ff27d93b4">inicio_espiracion</a>){</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;            <a class="code" href="tpi_8c.html#aa4716ba0e2555cd64666ad61294377c8">CalcularFlujoEspiracion</a>();</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            <a class="code" href="tpi_8c.html#a06b2ee362a6cda55124b1a2d9b8db8bd">Calculo_FEV1_CVF</a>();</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;            <a class="code" href="tpi_8c.html#acac272f7d90337bf50b6094f42976614">Comunicacion_Serie</a>();</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            <a class="code" href="tpi_8c.html#a502ba15f62ab314bceffd8c35ceea29e">Serial_Plotter</a>();</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            <span class="comment">// Enviar datos por BLE</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="group___b_l_e.html#ga45f64ecb9f703ecc50b85b6967e85bd5">BleStatus</a>() == <a class="code" href="group___b_l_e.html#ggab13ed63d3b157b93f1e6d98e3d6a7b47a6622372da21e5c0e32cf5c4445145399">BLE_CONNECTED</a>) {</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;                snprintf(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>, <span class="keyword">sizeof</span>(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>), <span class="stringliteral">&quot;*G%.2f,%.3f*\n&quot;</span>, <a class="code" href="tpi_8c.html#a641435925a42f8dbbb8b754af49482d4">presion_Kpa</a>, <a class="code" href="tpi_8c.html#a8973504ff871a1317a5554cdd01bf319">qv</a>);</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                <a class="code" href="group___b_l_e.html#ga68083cec5599456e78a536031e3b61b8">BleSendString</a>(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>);</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;                snprintf(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>, <span class="keyword">sizeof</span>(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>), <span class="stringliteral">&quot;*B%.2f*\n&quot;</span>, <a class="code" href="tpi_8c.html#ac6c28c79f23c747c4e9a0805ec9041f9">indice_de_capacidad_pulmonar</a>);</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;                <a class="code" href="group___b_l_e.html#ga68083cec5599456e78a536031e3b61b8">BleSendString</a>(<a class="code" href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a>);</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            }</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="tpi_8c.html#a873980a26076dfd1e6146db6ec732acc">fin_espiracion</a>){</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;            <span class="comment">// Reset de variables</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;            <a class="code" href="tpi_8c.html#ac6c28c79f23c747c4e9a0805ec9041f9">indice_de_capacidad_pulmonar</a> = 0;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            <a class="code" href="tpi_8c.html#a795639193e3f97984deccd59db746f43">volumen_total_CVF</a> = 0;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;            <a class="code" href="tpi_8c.html#a7cf63394302df6aa5e35616d49482ab2">volumen_1s_FEV1</a> = 0;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            <a class="code" href="tpi_8c.html#ad78bfbec0aad248d2f42f34aa6465600">tiempo_total</a> = 0;</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            <span class="comment">// Reset de banderas booleanas</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;            <a class="code" href="tpi_8c.html#aff57ba52c04ea5592d7fbf4ff27d93b4">inicio_espiracion</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            <a class="code" href="tpi_8c.html#a873980a26076dfd1e6146db6ec732acc">fin_espiracion</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;            <a class="code" href="tpi_8c.html#af2fdc026289be03b84b5f4da8ce389c8">ciclos_sin_presion</a> = 0;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        }</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        xTaskNotifyGive(<a class="code" href="tpi_8c.html#a72df3cb793dce94f98ee0a71b118e0bf">ActualizarLedsTaskHandle</a>);</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    }</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;}</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="comment">/*==================[external functions definition]==========================*/</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
+<div class="line"><a name="l00321"></a><span class="lineno"><a class="line" href="tpi_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">  321</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="tpi_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a>(<span class="keywordtype">void</span>){</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <a class="code" href="group___l_e_d.html#gacba669c3e8f52e45d1bea50c2e63b250">LedsInit</a>();</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <a class="code" href="_m_p3v5050_8h.html#a64231e876686774a20fa9dc9b6405c59">MP3v5050Init</a>();</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <a class="code" href="group___switch.html#ga8eb2865a73bf2d2b9fd6760958a0cc3c">SwitchesInit</a>();</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <a class="code" href="group___switch.html#ga9847b9081e3cb39dd3ec01eaee8323b2">SwitchActivInt</a>(<a class="code" href="group___switch.html#gga8caa2df6d25fea5a14eb4533df1d5cfaa24caa46485c5fec2211b3ebd8a1eee77">SWITCH_1</a>, <a class="code" href="tpi_8c.html#a96fa131acb51461af657d5e317bf4638">FuncTecla1</a>, 0);</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    </div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <a class="code" href="structserial__config__t.html">serial_config_t</a> uart_config = {</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        .<a class="code" href="structserial__config__t.html#a27067c816e8c5402c7be0da9780678b0">port</a> = <a class="code" href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a>,</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        .baud_rate = 115200,</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        .func_p = <a class="code" href="tpi_8c.html#acac272f7d90337bf50b6094f42976614">Comunicacion_Serie</a>,</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        .param_p = <a class="code" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    };  </div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <a class="code" href="group___u_a_r_t.html#ga440f6a03dfd8b310f5fdf42c3bf20c42">UartInit</a>(&amp;uart_config);</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;   </div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <a class="code" href="structble__config__t.html">ble_config_t</a> ble_config = {</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    .<a class="code" href="structble__config__t.html#a47b2e510fe20902fa67e2644118db42e">device_name</a> = <span class="stringliteral">&quot;ESP_EDU_Ivana&quot;</span>,</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    .func_p = <a class="code" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    };</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <a class="code" href="group___b_l_e.html#ga8001369ce247b2413afd6d8a14fe8d82">BleInit</a>(&amp;ble_config);</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <a class="code" href="structtimer__config__t.html">timer_config_t</a> timerMedirPresion = {</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        .<a class="code" href="structtimer__config__t.html#ab83043b8038c5e630f6a2a05ea007e49">timer</a> = <a class="code" href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598">TIMER_A</a>,</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        .period = <a class="code" href="tpi_8c.html#aca39b26c504c376043e30f633c1abaf8">PERIODO_MUESTREO</a>,</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        .func_p = <a class="code" href="tpi_8c.html#afaccfed84cd1498a05ea04a65f1209b1">FuncTimerA</a>,</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        .param_p = <a class="code" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    };</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <a class="code" href="group___timer.html#gae8617c0d176463a60441464ad26563f6">TimerInit</a>(&amp;timerMedirPresion);</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    xTaskCreate(&amp;MedirPresionTask, <span class="stringliteral">&quot;MedirPresionTask&quot;</span>, 2048, <a class="code" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>, 5, &amp;<a class="code" href="tpi_8c.html#a2c61b109a6870fef4d676096fa0ed473">MedirPresionTaskHandle</a>);</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    xTaskCreate(&amp;ActualizarLedsTask, <span class="stringliteral">&quot;ActualizarLedsTask&quot;</span>, 2048, <a class="code" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>, 5, &amp;<a class="code" href="tpi_8c.html#a72df3cb793dce94f98ee0a71b118e0bf">ActualizarLedsTaskHandle</a>);</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160; </div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <a class="code" href="group___timer.html#ga0b1779c5b8f91cc83c8bfd127071ea2f">TimerStart</a>(timerMedirPresion.<a class="code" href="structtimer__config__t.html#ab83043b8038c5e630f6a2a05ea007e49">timer</a>);</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    </div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;}</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="comment">/*==================[end of file]============================================*/</span></div>
+<div class="ttc" id="a_m_p3v5050_8h_html"><div class="ttname"><a href="_m_p3v5050_8h.html">MP3v5050.h</a></div></div>
+<div class="ttc" id="a_m_p3v5050_8h_html_a07d47529cf578a92950cea44924a2d4a"><div class="ttname"><a href="_m_p3v5050_8h.html#a07d47529cf578a92950cea44924a2d4a">MP3v5050ReadPressure_kPa</a></div><div class="ttdeci">float MP3v5050ReadPressure_kPa(void)</div><div class="ttdoc">Lee la presión diferencial medida por el sensor MP3V5050.</div><div class="ttdef"><b>Definition:</b> <a href="mp3v5050_8c_source.html#l00047">mp3v5050.c:47</a></div></div>
+<div class="ttc" id="a_m_p3v5050_8h_html_a2147e7eb8c4a3e670b741139a82f2ef2"><div class="ttname"><a href="_m_p3v5050_8h.html#a2147e7eb8c4a3e670b741139a82f2ef2">Valor_voltaje</a></div><div class="ttdeci">uint16_t Valor_voltaje(void)</div><div class="ttdef"><b>Definition:</b> <a href="mp3v5050_8c_source.html#l00061">mp3v5050.c:61</a></div></div>
+<div class="ttc" id="a_m_p3v5050_8h_html_a64231e876686774a20fa9dc9b6405c59"><div class="ttname"><a href="_m_p3v5050_8h.html#a64231e876686774a20fa9dc9b6405c59">MP3v5050Init</a></div><div class="ttdeci">bool MP3v5050Init(void)</div><div class="ttdoc">Inicializa el sensor MP3V5050.</div><div class="ttdef"><b>Definition:</b> <a href="mp3v5050_8c_source.html#l00034">mp3v5050.c:34</a></div></div>
+<div class="ttc" id="aanalog__io__mcu_8h_html"><div class="ttname"><a href="analog__io__mcu_8h.html">analog_io_mcu.h</a></div></div>
+<div class="ttc" id="able__mcu_8h_html"><div class="ttname"><a href="ble__mcu_8h.html">ble_mcu.h</a></div></div>
+<div class="ttc" id="agroup___b_l_e_html_ga45f64ecb9f703ecc50b85b6967e85bd5"><div class="ttname"><a href="group___b_l_e.html#ga45f64ecb9f703ecc50b85b6967e85bd5">BleStatus</a></div><div class="ttdeci">ble_status_t BleStatus(void)</div><div class="ttdoc">Gets BLE connection status.</div><div class="ttdef"><b>Definition:</b> <a href="ble__mcu_8c_source.html#l00531">ble_mcu.c:531</a></div></div>
+<div class="ttc" id="agroup___b_l_e_html_ga68083cec5599456e78a536031e3b61b8"><div class="ttname"><a href="group___b_l_e.html#ga68083cec5599456e78a536031e3b61b8">BleSendString</a></div><div class="ttdeci">void BleSendString(const char *msg)</div><div class="ttdoc">Send a string trough BLE (if connected)</div><div class="ttdef"><b>Definition:</b> <a href="ble__mcu_8c_source.html#l00545">ble_mcu.c:545</a></div></div>
+<div class="ttc" id="agroup___b_l_e_html_ga8001369ce247b2413afd6d8a14fe8d82"><div class="ttname"><a href="group___b_l_e.html#ga8001369ce247b2413afd6d8a14fe8d82">BleInit</a></div><div class="ttdeci">void BleInit(ble_config_t *ble_device)</div><div class="ttdoc">Bluetooth initialization.</div><div class="ttdef"><b>Definition:</b> <a href="ble__mcu_8c_source.html#l00453">ble_mcu.c:453</a></div></div>
+<div class="ttc" id="agroup___b_l_e_html_ggab13ed63d3b157b93f1e6d98e3d6a7b47a6622372da21e5c0e32cf5c4445145399"><div class="ttname"><a href="group___b_l_e.html#ggab13ed63d3b157b93f1e6d98e3d6a7b47a6622372da21e5c0e32cf5c4445145399">BLE_CONNECTED</a></div><div class="ttdeci">@ BLE_CONNECTED</div><div class="ttdef"><b>Definition:</b> <a href="ble__hid__mcu_8h_source.html#l00040">ble_hid_mcu.h:39</a></div></div>
+<div class="ttc" id="agroup___l_e_d_html_ga4fd07c9f7fab15d0d07389a38f4a39d8"><div class="ttname"><a href="group___l_e_d.html#ga4fd07c9f7fab15d0d07389a38f4a39d8">LedOff</a></div><div class="ttdeci">uint8_t LedOff(led_t led)</div><div class="ttdoc">Turn off a specific LED.</div><div class="ttdef"><b>Definition:</b> <a href="led_8c_source.html#l00065">led.c:65</a></div></div>
+<div class="ttc" id="agroup___l_e_d_html_ga883021aaef65f080a52b1852172ecbc3"><div class="ttname"><a href="group___l_e_d.html#ga883021aaef65f080a52b1852172ecbc3">LedOn</a></div><div class="ttdeci">uint8_t LedOn(led_t led)</div><div class="ttdoc">Turn on a specific LED.</div><div class="ttdef"><b>Definition:</b> <a href="led_8c_source.html#l00046">led.c:46</a></div></div>
+<div class="ttc" id="agroup___l_e_d_html_gacba669c3e8f52e45d1bea50c2e63b250"><div class="ttname"><a href="group___l_e_d.html#gacba669c3e8f52e45d1bea50c2e63b250">LedsInit</a></div><div class="ttdeci">uint8_t LedsInit(void)</div><div class="ttdoc">ESP-EDU LEDs initialization.</div><div class="ttdef"><b>Definition:</b> <a href="led_8c_source.html#l00031">led.c:31</a></div></div>
+<div class="ttc" id="agroup___l_e_d_html_ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41"><div class="ttname"><a href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a00af6b2437d9982f1f125d2cc2537c41">LED_2</a></div><div class="ttdeci">@ LED_2</div><div class="ttdef"><b>Definition:</b> <a href="led_8h_source.html#l00033">led.h:33</a></div></div>
+<div class="ttc" id="agroup___l_e_d_html_ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b"><div class="ttname"><a href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a11a9adb9054de1fe01d6a6750075f57b">LED_1</a></div><div class="ttdeci">@ LED_1</div><div class="ttdef"><b>Definition:</b> <a href="led_8h_source.html#l00034">led.h:34</a></div></div>
+<div class="ttc" id="agroup___l_e_d_html_ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3"><div class="ttname"><a href="group___l_e_d.html#ggab6831a7d06c0a2bc69f9b024f6445a80a3e1b1af0f74f675e4eb7bd18229adfd3">LED_3</a></div><div class="ttdeci">@ LED_3</div><div class="ttdef"><b>Definition:</b> <a href="led_8h_source.html#l00032">led.h:32</a></div></div>
+<div class="ttc" id="agroup___switch_html_ga8eb2865a73bf2d2b9fd6760958a0cc3c"><div class="ttname"><a href="group___switch.html#ga8eb2865a73bf2d2b9fd6760958a0cc3c">SwitchesInit</a></div><div class="ttdeci">int8_t SwitchesInit(void)</div><div class="ttdoc">ESP-EDU switches initialization.</div><div class="ttdef"><b>Definition:</b> <a href="switch_8c_source.html#l00029">switch.c:29</a></div></div>
+<div class="ttc" id="agroup___switch_html_ga9847b9081e3cb39dd3ec01eaee8323b2"><div class="ttname"><a href="group___switch.html#ga9847b9081e3cb39dd3ec01eaee8323b2">SwitchActivInt</a></div><div class="ttdeci">void SwitchActivInt(switch_t tec, void *ptrIntFunc, void *args)</div><div class="ttdoc">Enables the interruption of a particular key and assigns a callback function.</div><div class="ttdef"><b>Definition:</b> <a href="switch_8c_source.html#l00047">switch.c:47</a></div></div>
+<div class="ttc" id="agroup___switch_html_gga8caa2df6d25fea5a14eb4533df1d5cfaa24caa46485c5fec2211b3ebd8a1eee77"><div class="ttname"><a href="group___switch.html#gga8caa2df6d25fea5a14eb4533df1d5cfaa24caa46485c5fec2211b3ebd8a1eee77">SWITCH_1</a></div><div class="ttdeci">@ SWITCH_1</div><div class="ttdef"><b>Definition:</b> <a href="switch_8h_source.html#l00032">switch.h:32</a></div></div>
+<div class="ttc" id="agroup___timer_html_ga0b1779c5b8f91cc83c8bfd127071ea2f"><div class="ttname"><a href="group___timer.html#ga0b1779c5b8f91cc83c8bfd127071ea2f">TimerStart</a></div><div class="ttdeci">void TimerStart(timer_mcu_t timer)</div><div class="ttdoc">Start timer count.</div><div class="ttdef"><b>Definition:</b> <a href="timer__mcu_8c_source.html#l00116">timer_mcu.c:116</a></div></div>
+<div class="ttc" id="agroup___timer_html_gae8617c0d176463a60441464ad26563f6"><div class="ttname"><a href="group___timer.html#gae8617c0d176463a60441464ad26563f6">TimerInit</a></div><div class="ttdeci">void TimerInit(timer_config_t *timer_ini)</div><div class="ttdoc">Timer initialization.</div><div class="ttdef"><b>Definition:</b> <a href="timer__mcu_8c_source.html#l00067">timer_mcu.c:67</a></div></div>
+<div class="ttc" id="agroup___timer_html_ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598"><div class="ttname"><a href="group___timer.html#ggacc4e64394d03a6e790f8e52c674534d9a179b1231f027eba52fa4ef94ec174598">TIMER_A</a></div><div class="ttdeci">@ TIMER_A</div><div class="ttdef"><b>Definition:</b> <a href="timer__mcu_8h_source.html#l00032">timer_mcu.h:32</a></div></div>
+<div class="ttc" id="agroup___u_a_r_t_html_ga42730dd5e3d16e66e577225e8a2741fc"><div class="ttname"><a href="group___u_a_r_t.html#ga42730dd5e3d16e66e577225e8a2741fc">UartItoa</a></div><div class="ttdeci">uint8_t * UartItoa(uint32_t val, uint8_t base)</div><div class="ttdoc">Convert a number to a String (char array ended with '\0')</div><div class="ttdef"><b>Definition:</b> <a href="uart__mcu_8c_source.html#l00222">uart_mcu.c:222</a></div></div>
+<div class="ttc" id="agroup___u_a_r_t_html_ga440f6a03dfd8b310f5fdf42c3bf20c42"><div class="ttname"><a href="group___u_a_r_t.html#ga440f6a03dfd8b310f5fdf42c3bf20c42">UartInit</a></div><div class="ttdeci">void UartInit(serial_config_t *port_config)</div><div class="ttdoc">Serial port initialization.</div><div class="ttdef"><b>Definition:</b> <a href="uart__mcu_8c_source.html#l00107">uart_mcu.c:107</a></div></div>
+<div class="ttc" id="agroup___u_a_r_t_html_ga60db217694ea24ad75fcedda3336a3a8"><div class="ttname"><a href="group___u_a_r_t.html#ga60db217694ea24ad75fcedda3336a3a8">UartSendString</a></div><div class="ttdeci">void UartSendString(uart_mcu_port_t port, const char *msg)</div><div class="ttdoc">Send a String trough serial port.</div><div class="ttdef"><b>Definition:</b> <a href="uart__mcu_8c_source.html#l00193">uart_mcu.c:193</a></div></div>
+<div class="ttc" id="agroup___u_a_r_t_html_gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056"><div class="ttname"><a href="group___u_a_r_t.html#gga6e1a445bae87c4cfd26710dbd4657b77af81669fbb473eedf3d1789fcf08d9056">UART_PC</a></div><div class="ttdeci">@ UART_PC</div><div class="ttdef"><b>Definition:</b> <a href="uart__mcu_8h_source.html#l00032">uart_mcu.h:32</a></div></div>
+<div class="ttc" id="aili9341_8c_html_a070d2ce7b6bb7e5c05602aa8c308d0c4"><div class="ttname"><a href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></div><div class="ttdeci">#define NULL</div><div class="ttdef"><b>Definition:</b> <a href="ili9341_8c_source.html#l00019">ili9341.c:19</a></div></div>
+<div class="ttc" id="aled_8h_html"><div class="ttname"><a href="led_8h.html">led.h</a></div></div>
+<div class="ttc" id="astructble__config__t_html"><div class="ttname"><a href="structble__config__t.html">ble_config_t</a></div><div class="ttdoc">BLE configuration struct.</div><div class="ttdef"><b>Definition:</b> <a href="ble__mcu_8h_source.html#l00043">ble_mcu.h:43</a></div></div>
+<div class="ttc" id="astructble__config__t_html_a47b2e510fe20902fa67e2644118db42e"><div class="ttname"><a href="structble__config__t.html#a47b2e510fe20902fa67e2644118db42e">ble_config_t::device_name</a></div><div class="ttdeci">char * device_name</div><div class="ttdef"><b>Definition:</b> <a href="ble__mcu_8h_source.html#l00044">ble_mcu.h:44</a></div></div>
+<div class="ttc" id="astructserial__config__t_html"><div class="ttname"><a href="structserial__config__t.html">serial_config_t</a></div><div class="ttdoc">Serial port configuration struct.</div><div class="ttdef"><b>Definition:</b> <a href="uart__mcu_8h_source.html#l00038">uart_mcu.h:38</a></div></div>
+<div class="ttc" id="astructserial__config__t_html_a27067c816e8c5402c7be0da9780678b0"><div class="ttname"><a href="structserial__config__t.html#a27067c816e8c5402c7be0da9780678b0">serial_config_t::port</a></div><div class="ttdeci">uart_mcu_port_t port</div><div class="ttdef"><b>Definition:</b> <a href="uart__mcu_8h_source.html#l00039">uart_mcu.h:39</a></div></div>
+<div class="ttc" id="astructtimer__config__t_html"><div class="ttname"><a href="structtimer__config__t.html">timer_config_t</a></div><div class="ttdoc">Timer configuration struct.</div><div class="ttdef"><b>Definition:</b> <a href="timer__mcu_8h_source.html#l00039">timer_mcu.h:39</a></div></div>
+<div class="ttc" id="astructtimer__config__t_html_ab83043b8038c5e630f6a2a05ea007e49"><div class="ttname"><a href="structtimer__config__t.html#ab83043b8038c5e630f6a2a05ea007e49">timer_config_t::timer</a></div><div class="ttdeci">timer_mcu_t timer</div><div class="ttdef"><b>Definition:</b> <a href="timer__mcu_8h_source.html#l00040">timer_mcu.h:40</a></div></div>
+<div class="ttc" id="aswitch_8h_html"><div class="ttname"><a href="switch_8h.html">switch.h</a></div></div>
+<div class="ttc" id="atimer__mcu_8h_html"><div class="ttname"><a href="timer__mcu_8h.html">timer_mcu.h</a></div></div>
+<div class="ttc" id="atpi_8c_html_a045041d965c37a1d425bcdab31b07c2a"><div class="ttname"><a href="tpi_8c.html#a045041d965c37a1d425bcdab31b07c2a">Detectar_Inicio_Fin_Espiracion</a></div><div class="ttdeci">void Detectar_Inicio_Fin_Espiracion()</div><div class="ttdoc">Detecta el inicio y fin de la espiración según el valor de presión y ciclos.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00176">tpi.c:176</a></div></div>
+<div class="ttc" id="atpi_8c_html_a06b2ee362a6cda55124b1a2d9b8db8bd"><div class="ttname"><a href="tpi_8c.html#a06b2ee362a6cda55124b1a2d9b8db8bd">Calculo_FEV1_CVF</a></div><div class="ttdeci">void Calculo_FEV1_CVF()</div><div class="ttdoc">Calcula los volúmenes espirados (CVF y FEV1) e índice FEV1/CVF.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00194">tpi.c:194</a></div></div>
+<div class="ttc" id="atpi_8c_html_a1d6b046b8e65b51e8fa0fd41e687265f"><div class="ttname"><a href="tpi_8c.html#a1d6b046b8e65b51e8fa0fd41e687265f">umbral_objetivo</a></div><div class="ttdeci">#define umbral_objetivo</div><div class="ttdoc">Umbral de índice FEV1/CVF objetivo para LED verde.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00079">tpi.c:79</a></div></div>
+<div class="ttc" id="atpi_8c_html_a2946bc30423c2a996eeafa49e995c30e"><div class="ttname"><a href="tpi_8c.html#a2946bc30423c2a996eeafa49e995c30e">A2</a></div><div class="ttdeci">#define A2</div><div class="ttdoc">Área de garganta del tubo (en m²).</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00070">tpi.c:70</a></div></div>
+<div class="ttc" id="atpi_8c_html_a2c61b109a6870fef4d676096fa0ed473"><div class="ttname"><a href="tpi_8c.html#a2c61b109a6870fef4d676096fa0ed473">MedirPresionTaskHandle</a></div><div class="ttdeci">TaskHandle_t MedirPresionTaskHandle</div><div class="ttdoc">Handle de la tarea que mide presión.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00086">tpi.c:86</a></div></div>
+<div class="ttc" id="atpi_8c_html_a502ba15f62ab314bceffd8c35ceea29e"><div class="ttname"><a href="tpi_8c.html#a502ba15f62ab314bceffd8c35ceea29e">Serial_Plotter</a></div><div class="ttdeci">void Serial_Plotter()</div><div class="ttdoc">Envía el voltaje leído por el sensor al Serial Plotter.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00263">tpi.c:263</a></div></div>
+<div class="ttc" id="atpi_8c_html_a53d2c7e452fa3160710875b92eaebf0d"><div class="ttname"><a href="tpi_8c.html#a53d2c7e452fa3160710875b92eaebf0d">msg</a></div><div class="ttdeci">char msg[32]</div><div class="ttdoc">Buffer para mensajes a enviar por UART o BLE.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00104">tpi.c:104</a></div></div>
+<div class="ttc" id="atpi_8c_html_a53ebf8d5b2883994c8eec21614933117"><div class="ttname"><a href="tpi_8c.html#a53ebf8d5b2883994c8eec21614933117">periodo_actual</a></div><div class="ttdeci">uint32_t periodo_actual</div><div class="ttdoc">Período actual del temporizador.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00101">tpi.c:101</a></div></div>
+<div class="ttc" id="atpi_8c_html_a5dcc5c9f58beecd216195a160a973a4d"><div class="ttname"><a href="tpi_8c.html#a5dcc5c9f58beecd216195a160a973a4d">voltaje_mv</a></div><div class="ttdeci">uint16_t voltaje_mv</div><div class="ttdoc">Voltaje leído en mV.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00098">tpi.c:98</a></div></div>
+<div class="ttc" id="atpi_8c_html_a630544a7f0a2cc40d8a7fefab7e2fe70"><div class="ttname"><a href="tpi_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a></div><div class="ttdeci">void app_main(void)</div><div class="ttdoc">Función principal del programa. Inicializa periféricos, configura UART, BLE, temporizador y lanza la ...</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00321">tpi.c:321</a></div></div>
+<div class="ttc" id="atpi_8c_html_a641435925a42f8dbbb8b754af49482d4"><div class="ttname"><a href="tpi_8c.html#a641435925a42f8dbbb8b754af49482d4">presion_Kpa</a></div><div class="ttdeci">float presion_Kpa</div><div class="ttdoc">Presión diferencial medida (en kPa).</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00092">tpi.c:92</a></div></div>
+<div class="ttc" id="atpi_8c_html_a72df3cb793dce94f98ee0a71b118e0bf"><div class="ttname"><a href="tpi_8c.html#a72df3cb793dce94f98ee0a71b118e0bf">ActualizarLedsTaskHandle</a></div><div class="ttdeci">TaskHandle_t ActualizarLedsTaskHandle</div><div class="ttdoc">Handle de la tarea que actualiza los LEDs.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00089">tpi.c:89</a></div></div>
+<div class="ttc" id="atpi_8c_html_a7613eca9f75b90f30f3bb011a2fc5622"><div class="ttname"><a href="tpi_8c.html#a7613eca9f75b90f30f3bb011a2fc5622">CICLOS_FIN_ESPIRACION</a></div><div class="ttdeci">#define CICLOS_FIN_ESPIRACION</div><div class="ttdoc">Cantidad de ciclos sin presión antes de marcar el fin de espiración.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00061">tpi.c:61</a></div></div>
+<div class="ttc" id="atpi_8c_html_a778e38aa889751afffa2dea6b803e67a"><div class="ttname"><a href="tpi_8c.html#a778e38aa889751afffa2dea6b803e67a">dt</a></div><div class="ttdeci">float dt</div><div class="ttdoc">Delta de tiempo entre mediciones (en segundos).</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00119">tpi.c:119</a></div></div>
+<div class="ttc" id="atpi_8c_html_a795639193e3f97984deccd59db746f43"><div class="ttname"><a href="tpi_8c.html#a795639193e3f97984deccd59db746f43">volumen_total_CVF</a></div><div class="ttdeci">float volumen_total_CVF</div><div class="ttdoc">Volumen total espirado (CVF).</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00113">tpi.c:113</a></div></div>
+<div class="ttc" id="atpi_8c_html_a7cf63394302df6aa5e35616d49482ab2"><div class="ttname"><a href="tpi_8c.html#a7cf63394302df6aa5e35616d49482ab2">volumen_1s_FEV1</a></div><div class="ttdeci">float volumen_1s_FEV1</div><div class="ttdoc">Volumen espirado en el primer segundo (FEV1).</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00116">tpi.c:116</a></div></div>
+<div class="ttc" id="atpi_8c_html_a873980a26076dfd1e6146db6ec732acc"><div class="ttname"><a href="tpi_8c.html#a873980a26076dfd1e6146db6ec732acc">fin_espiracion</a></div><div class="ttdeci">bool fin_espiracion</div><div class="ttdoc">Bandera que indica si se detectó el fin de espiración.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00110">tpi.c:110</a></div></div>
+<div class="ttc" id="atpi_8c_html_a8973504ff871a1317a5554cdd01bf319"><div class="ttname"><a href="tpi_8c.html#a8973504ff871a1317a5554cdd01bf319">qv</a></div><div class="ttdeci">float qv</div><div class="ttdoc">Flujo espirado en m³/s.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00095">tpi.c:95</a></div></div>
+<div class="ttc" id="atpi_8c_html_a8c6169a91956c1d71728cceb850488bd"><div class="ttname"><a href="tpi_8c.html#a8c6169a91956c1d71728cceb850488bd">umbral_limite</a></div><div class="ttdeci">#define umbral_limite</div><div class="ttdoc">Umbral de índice FEV1/CVF bajo el cual se enciende LED rojo.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00082">tpi.c:82</a></div></div>
+<div class="ttc" id="atpi_8c_html_a96fa131acb51461af657d5e317bf4638"><div class="ttname"><a href="tpi_8c.html#a96fa131acb51461af657d5e317bf4638">FuncTecla1</a></div><div class="ttdeci">void FuncTecla1()</div><div class="ttdoc">Función asociada al SWITCH 1, el propósito es reiniciar los valores del BLE para comenzar de nuevo,...</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00155">tpi.c:155</a></div></div>
+<div class="ttc" id="atpi_8c_html_aa4716ba0e2555cd64666ad61294377c8"><div class="ttname"><a href="tpi_8c.html#aa4716ba0e2555cd64666ad61294377c8">CalcularFlujoEspiracion</a></div><div class="ttdeci">void CalcularFlujoEspiracion()</div><div class="ttdoc">Calcula el flujo de aire espirado en m³/s a partir de la presión diferencial leída del sensor.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00144">tpi.c:144</a></div></div>
+<div class="ttc" id="atpi_8c_html_ac6c28c79f23c747c4e9a0805ec9041f9"><div class="ttname"><a href="tpi_8c.html#ac6c28c79f23c747c4e9a0805ec9041f9">indice_de_capacidad_pulmonar</a></div><div class="ttdeci">float indice_de_capacidad_pulmonar</div><div class="ttdoc">Índice FEV1/CVF expresado en porcentaje.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00125">tpi.c:125</a></div></div>
+<div class="ttc" id="atpi_8c_html_aca39b26c504c376043e30f633c1abaf8"><div class="ttname"><a href="tpi_8c.html#aca39b26c504c376043e30f633c1abaf8">PERIODO_MUESTREO</a></div><div class="ttdeci">#define PERIODO_MUESTREO</div><div class="ttdoc">Período de muestreo del temporizador en microsegundos (100ms).</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00058">tpi.c:58</a></div></div>
+<div class="ttc" id="atpi_8c_html_acac272f7d90337bf50b6094f42976614"><div class="ttname"><a href="tpi_8c.html#acac272f7d90337bf50b6094f42976614">Comunicacion_Serie</a></div><div class="ttdeci">void Comunicacion_Serie()</div><div class="ttdoc">Envía por UART el flujo de aire espirado y la presión medida.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00244">tpi.c:244</a></div></div>
+<div class="ttc" id="atpi_8c_html_acd92b430059d886880c53f13ae038e3f"><div class="ttname"><a href="tpi_8c.html#acd92b430059d886880c53f13ae038e3f">A1</a></div><div class="ttdeci">#define A1</div><div class="ttdoc">Área de entrada del tubo (en m²).</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00067">tpi.c:67</a></div></div>
+<div class="ttc" id="atpi_8c_html_ad6f5fa843e817d6b7dd2fdb8df513d22"><div class="ttname"><a href="tpi_8c.html#ad6f5fa843e817d6b7dd2fdb8df513d22">Cd</a></div><div class="ttdeci">#define Cd</div><div class="ttdoc">Coeficiente de descarga del tubo Venturi.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00064">tpi.c:64</a></div></div>
+<div class="ttc" id="atpi_8c_html_ad78bfbec0aad248d2f42f34aa6465600"><div class="ttname"><a href="tpi_8c.html#ad78bfbec0aad248d2f42f34aa6465600">tiempo_total</a></div><div class="ttdeci">float tiempo_total</div><div class="ttdoc">Tiempo total transcurrido desde el inicio de espiración.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00122">tpi.c:122</a></div></div>
+<div class="ttc" id="atpi_8c_html_addfc29b6fbd750fa265ef21d3f300324"><div class="ttname"><a href="tpi_8c.html#addfc29b6fbd750fa265ef21d3f300324">umbral</a></div><div class="ttdeci">#define umbral</div><div class="ttdoc">Umbral de presión en kPa para detectar inicio de espiración.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00076">tpi.c:76</a></div></div>
+<div class="ttc" id="atpi_8c_html_ade66e4ccafbc33b117610bbc0d85feb0"><div class="ttname"><a href="tpi_8c.html#ade66e4ccafbc33b117610bbc0d85feb0">p</a></div><div class="ttdeci">#define p</div><div class="ttdoc">Densidad del aire en Kg/m³.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00073">tpi.c:73</a></div></div>
+<div class="ttc" id="atpi_8c_html_af2fdc026289be03b84b5f4da8ce389c8"><div class="ttname"><a href="tpi_8c.html#af2fdc026289be03b84b5f4da8ce389c8">ciclos_sin_presion</a></div><div class="ttdeci">uint16_t ciclos_sin_presion</div><div class="ttdoc">Contador de ciclos consecutivos sin presión.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00128">tpi.c:128</a></div></div>
+<div class="ttc" id="atpi_8c_html_afaccfed84cd1498a05ea04a65f1209b1"><div class="ttname"><a href="tpi_8c.html#afaccfed84cd1498a05ea04a65f1209b1">FuncTimerA</a></div><div class="ttdeci">void FuncTimerA(void *param)</div><div class="ttdoc">Función de callback del temporizador. Notifica a la tarea de medición de presión cuando se alcanza el...</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00136">tpi.c:136</a></div></div>
+<div class="ttc" id="atpi_8c_html_aff57ba52c04ea5592d7fbf4ff27d93b4"><div class="ttname"><a href="tpi_8c.html#aff57ba52c04ea5592d7fbf4ff27d93b4">inicio_espiracion</a></div><div class="ttdeci">bool inicio_espiracion</div><div class="ttdoc">Bandera que indica si se detectó el inicio de espiración.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00107">tpi.c:107</a></div></div>
+<div class="ttc" id="auart__mcu_8h_html"><div class="ttname"><a href="uart__mcu_8h.html">uart_mcu.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d9edf6c004b4a7ff14fe9ae7a92214ee.html">firmware</a></li><li class="navelem"><a class="el" href="dir_429d80758da54da73083af4edd40d0b3.html">projects</a></li><li class="navelem"><a class="el" href="dir_dfdef998be7e773c163f1632d17097a5.html">TPI</a></li><li class="navelem"><a class="el" href="dir_fd91698f305718f73f31a96c15b4d0d7.html">main</a></li><li class="navelem"><a class="el" href="tpi_8c.html">tpi.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

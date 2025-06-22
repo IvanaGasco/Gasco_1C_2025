@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trabajo Práctico Integrador - Espirómetro: Fichero Fuente /home/ivana/Escritorio/1_Cuartri_2025/Electronica_Programable/Gasco_1C_2025/Proyecto2/firmware/drivers/devices/src/mp3v5050.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trabajo Práctico Integrador - Espirómetro
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('mp3v5050_8c_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">mp3v5050.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="mp3v5050_8c.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">/*==================[inclusions]=============================================*/</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_m_p3v5050_8h.html">MP3v5050.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="analog__io__mcu_8h.html">analog_io_mcu.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="uart__mcu_8h.html">uart_mcu.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/*==================[macros and definitions]=================================*/</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="mp3v5050_8c.html#a5b1a1023bbaaa5b575b1dc39555ffce0">   19</a></span>&#160;<span class="preprocessor">#define VS_MV 3000.0 </span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/*==================[internal data declaration]==============================*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//analog_input_config_t configuracionCanal = {CH1, ADC_SINGLE, NULL, NULL, 10000}</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*==================[internal functions declaration]=========================*/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*==================[internal data definition]===============================*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/*==================[external data definition]===============================*/</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/*==================[internal functions definition]==========================*/</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*==================[external functions definition]==========================*/</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="_m_p3v5050_8h.html#a64231e876686774a20fa9dc9b6405c59">   34</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="mp3v5050_8c.html#a64231e876686774a20fa9dc9b6405c59">MP3v5050Init</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="structanalog__input__config__t.html">analog_input_config_t</a> adc_config = {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        .<a class="code" href="structanalog__input__config__t.html#a16d10b35d778a5d4fdbda4d75981d310">input</a> = <a class="code" href="group___analog___i_o.html#gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e">CH1</a>,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        .mode = <a class="code" href="group___analog___i_o.html#gga51acd785c14953090a3507d4fa8e5939a3b0a8cf9a7759ea8b7c9494eb7fb3dd4">ADC_SINGLE</a>,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        .func_p = <a class="code" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        .param_p = <a class="code" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    };</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="group___analog___i_o.html#ga24ce5556aa4682468220b982f151cdfe">AnalogInputInit</a>(&amp;adc_config);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="_m_p3v5050_8h.html#a07d47529cf578a92950cea44924a2d4a">   47</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="mp3v5050_8c.html#a07d47529cf578a92950cea44924a2d4a">MP3v5050ReadPressure_kPa</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    uint16_t value_mv;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="group___analog___i_o.html#gab5ae00a35744f407072230979e593fd9">AnalogInputReadSingle</a>(<a class="code" href="group___analog___i_o.html#gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e">CH1</a>, &amp;value_mv);  <span class="comment">// Lee del canal CH1</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">float</span> vout = (float)value_mv/ 1000.0;  <span class="comment">// convierte a voltios</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">float</span> pressure_kPa = (((vout - 0.01 )/ 3.3) - 0.04) / 0.018;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    printf(<span class="stringliteral">&quot;value_mv = %d\n&quot;</span>, value_mv);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">// Convertir y enviar por UART</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> pressure_kPa;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="_m_p3v5050_8h.html#a2147e7eb8c4a3e670b741139a82f2ef2">   61</a></span>&#160;uint16_t <a class="code" href="mp3v5050_8c.html#a2147e7eb8c4a3e670b741139a82f2ef2">Valor_voltaje</a>(<span class="keywordtype">void</span>){</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    uint16_t <a class="code" href="tpi_8c.html#a5dcc5c9f58beecd216195a160a973a4d">voltaje_mv</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="group___analog___i_o.html#gab5ae00a35744f407072230979e593fd9">AnalogInputReadSingle</a>(<a class="code" href="group___analog___i_o.html#gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e">CH1</a>, &amp;<a class="code" href="tpi_8c.html#a5dcc5c9f58beecd216195a160a973a4d">voltaje_mv</a>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="tpi_8c.html#a5dcc5c9f58beecd216195a160a973a4d">voltaje_mv</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">/*==================[end of file]============================================*/</span></div>
+<div class="ttc" id="a_m_p3v5050_8h_html"><div class="ttname"><a href="_m_p3v5050_8h.html">MP3v5050.h</a></div></div>
+<div class="ttc" id="aanalog__io__mcu_8h_html"><div class="ttname"><a href="analog__io__mcu_8h.html">analog_io_mcu.h</a></div></div>
+<div class="ttc" id="agroup___analog___i_o_html_ga24ce5556aa4682468220b982f151cdfe"><div class="ttname"><a href="group___analog___i_o.html#ga24ce5556aa4682468220b982f151cdfe">AnalogInputInit</a></div><div class="ttdeci">void AnalogInputInit(analog_input_config_t *config)</div><div class="ttdoc">Analog input initialization.</div><div class="ttdef"><b>Definition:</b> <a href="analog__io__mcu_8c_source.html#l00045">analog_io_mcu.c:45</a></div></div>
+<div class="ttc" id="agroup___analog___i_o_html_gab5ae00a35744f407072230979e593fd9"><div class="ttname"><a href="group___analog___i_o.html#gab5ae00a35744f407072230979e593fd9">AnalogInputReadSingle</a></div><div class="ttdeci">void AnalogInputReadSingle(adc_ch_t channel, uint16_t *value)</div><div class="ttdoc">Read single channel.</div><div class="ttdef"><b>Definition:</b> <a href="analog__io__mcu_8c_source.html#l00130">analog_io_mcu.c:130</a></div></div>
+<div class="ttc" id="agroup___analog___i_o_html_gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e"><div class="ttname"><a href="group___analog___i_o.html#gga4ebdf50515e5d73c58c24fd1491770dca703cf81b7a9530ba8650e0ee2f29d68e">CH1</a></div><div class="ttdeci">@ CH1</div><div class="ttdef"><b>Definition:</b> <a href="analog__io__mcu_8h_source.html#l00032">analog_io_mcu.h:32</a></div></div>
+<div class="ttc" id="agroup___analog___i_o_html_gga51acd785c14953090a3507d4fa8e5939a3b0a8cf9a7759ea8b7c9494eb7fb3dd4"><div class="ttname"><a href="group___analog___i_o.html#gga51acd785c14953090a3507d4fa8e5939a3b0a8cf9a7759ea8b7c9494eb7fb3dd4">ADC_SINGLE</a></div><div class="ttdeci">@ ADC_SINGLE</div><div class="ttdef"><b>Definition:</b> <a href="analog__io__mcu_8h_source.html#l00038">analog_io_mcu.h:38</a></div></div>
+<div class="ttc" id="aili9341_8c_html_a070d2ce7b6bb7e5c05602aa8c308d0c4"><div class="ttname"><a href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></div><div class="ttdeci">#define NULL</div><div class="ttdef"><b>Definition:</b> <a href="ili9341_8c_source.html#l00019">ili9341.c:19</a></div></div>
+<div class="ttc" id="amp3v5050_8c_html_a07d47529cf578a92950cea44924a2d4a"><div class="ttname"><a href="mp3v5050_8c.html#a07d47529cf578a92950cea44924a2d4a">MP3v5050ReadPressure_kPa</a></div><div class="ttdeci">float MP3v5050ReadPressure_kPa(void)</div><div class="ttdoc">Lee la presión diferencial medida por el sensor MP3V5050.</div><div class="ttdef"><b>Definition:</b> <a href="mp3v5050_8c_source.html#l00047">mp3v5050.c:47</a></div></div>
+<div class="ttc" id="amp3v5050_8c_html_a2147e7eb8c4a3e670b741139a82f2ef2"><div class="ttname"><a href="mp3v5050_8c.html#a2147e7eb8c4a3e670b741139a82f2ef2">Valor_voltaje</a></div><div class="ttdeci">uint16_t Valor_voltaje(void)</div><div class="ttdef"><b>Definition:</b> <a href="mp3v5050_8c_source.html#l00061">mp3v5050.c:61</a></div></div>
+<div class="ttc" id="amp3v5050_8c_html_a64231e876686774a20fa9dc9b6405c59"><div class="ttname"><a href="mp3v5050_8c.html#a64231e876686774a20fa9dc9b6405c59">MP3v5050Init</a></div><div class="ttdeci">bool MP3v5050Init(void)</div><div class="ttdoc">Inicializa el sensor MP3V5050.</div><div class="ttdef"><b>Definition:</b> <a href="mp3v5050_8c_source.html#l00034">mp3v5050.c:34</a></div></div>
+<div class="ttc" id="astructanalog__input__config__t_html"><div class="ttname"><a href="structanalog__input__config__t.html">analog_input_config_t</a></div><div class="ttdoc">Analog inputs config structure.</div><div class="ttdef"><b>Definition:</b> <a href="analog__io__mcu_8h_source.html#l00048">analog_io_mcu.h:48</a></div></div>
+<div class="ttc" id="astructanalog__input__config__t_html_a16d10b35d778a5d4fdbda4d75981d310"><div class="ttname"><a href="structanalog__input__config__t.html#a16d10b35d778a5d4fdbda4d75981d310">analog_input_config_t::input</a></div><div class="ttdeci">adc_ch_t input</div><div class="ttdef"><b>Definition:</b> <a href="analog__io__mcu_8h_source.html#l00049">analog_io_mcu.h:49</a></div></div>
+<div class="ttc" id="atpi_8c_html_a5dcc5c9f58beecd216195a160a973a4d"><div class="ttname"><a href="tpi_8c.html#a5dcc5c9f58beecd216195a160a973a4d">voltaje_mv</a></div><div class="ttdeci">uint16_t voltaje_mv</div><div class="ttdoc">Voltaje leído en mV.</div><div class="ttdef"><b>Definition:</b> <a href="tpi_8c_source.html#l00098">tpi.c:98</a></div></div>
+<div class="ttc" id="auart__mcu_8h_html"><div class="ttname"><a href="uart__mcu_8h.html">uart_mcu.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d9edf6c004b4a7ff14fe9ae7a92214ee.html">firmware</a></li><li class="navelem"><a class="el" href="dir_4774754e228843183aac8de48667fdde.html">drivers</a></li><li class="navelem"><a class="el" href="dir_01f3b75bad316aed7476a5f4cbb25c84.html">devices</a></li><li class="navelem"><a class="el" href="dir_2602097dce81420f4880be8af28b7cd8.html">src</a></li><li class="navelem"><a class="el" href="mp3v5050_8c.html">mp3v5050.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>
